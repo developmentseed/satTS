@@ -6,6 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy import signal
 import numpy as np
+import itertools
 
 
 
@@ -38,17 +39,23 @@ def cluster_ndvi_ts(time_seriesdf, n_samples, cluster_alg, n_clusters, smooth=Tr
     :param score (bool): calculate silhouette score for cluster labels?
     :return: 1) dataframe with cluster labels for each pixel, 2) silhouette score
     '''
+
     # Take random `n_samples of pixels from time-series dataframe
     g = time_seriesdf.groupby(['lc', 'pixel', 'array_ind'])
     a = np.arange(g.ngroups)
+
+    # Ensure same pixels are samples each time function is run with same n_samples parameter is supplied
+    np.random.seed(0)
     np.random.shuffle(a)
+
+    # Take the random sample
     ts_sub = time_seriesdf[g.ngroup().isin(a[:n_samples])]
 
     # Perform Savgol signal smoothing to each time-series
     if smooth:
         ts_sub = ts_sub.groupby(['lc', 'pixel', 'array_ind']).apply(apply_savgol, window, poly)
 
-    # GRab dates for column renaming in reshapes dataframe
+    # Grab dates for column renaming in reshapes dataframe
     dates = ts_sub['date'].unique()
 
     #Generate time_series_dataset object from time-series dataframe
@@ -66,15 +73,15 @@ def cluster_ndvi_ts(time_seriesdf, n_samples, cluster_alg, n_clusters, smooth=Tr
     if cluster_alg == "TSKM":
         km = clust.TimeSeriesKMeans(n_clusters=n_clusters, metric=cluster_metric)
 
+    # Add predicted cluster labels to cluster results dataframe
     labels = km.fit_predict(t)
+    clust_df['cluster'] = labels
 
     if score:
         s = silhouette_score(t, labels)
+        return clust_df, s
 
-    # Add predicted cluster labels to cluster results dataframe
-    clust_df['cluster'] = labels
-
-    return clust_df, s
+    return clust_df
 
 
 
@@ -103,13 +110,51 @@ def cluster_mean_quantiles(df):
     return m, q
 
 
+
+def cluster_grid_search(parameter_grid):
+    # List of all possible parameter combinations
+    d = []
+    for vals in itertools.product(*parameter_grid.values()):
+        d.append(dict(zip(param_grid, vals)))
+
+    # Convert to data frame; use to store silhouette scores
+    df = pd.DataFrame(d)
+    df = df.drop(['time_seriesdf'], axis=1)
+
+    # Perform grid search
+    output = {'clusters': [], 'scores': []}
+    for values in itertools.product(*parameter_grid.values()):
+        # Run clustering function on all combinations of parameters in parameter grid
+        clusters, score = cluster_ndvi_ts(**dict(zip(parameter_grid, values)))
+
+        # 'clusters' = dataframes with cluster results; scores = silhouette scores of corresponding cluster results
+        output['clusters'].append(clusters)
+        output['scores'].append(score)
+
+    # Add silhouette scores to dataframe
+    df['sil_score'] = output['scores']
+
+    return output, df
+
+
+
 # Cropped area interpolated ndvi time-series'
 crop = pd.read_csv('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/lc_ndvi_ts/crop_ndvi_interp.csv')
 
-test, silscore = cluster_ndvi_ts(crop, n_samples=100, window=7, poly=3, n_clusters=2, cluster_alg="TSKM",
-                                 cluster_metric='softdtw', score=True)
-# How many pixels in each cluster?
-test['cluster'].value_counts()
+param_grid = {
+    'time_seriesdf': [crop],
+    'n_samples': [10],
+    'cluster_alg': ['GAKM', 'TSKM'],
+    'n_clusters': list(range(2, 4)),
+    'smooth': [True],
+    'window': [7],
+    'poly': [3],
+    'cluster_metric': ['dtw', 'softdtw'],
+    'score': [True]
+}
+
+pg_dict, pg_df = cluster_grid_search(param_grid)
+x = pg_dict['clusters'][7]
 
 
 # Get cluster means and 10th, 90th quantiles

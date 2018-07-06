@@ -98,4 +98,4 @@ crop_mask = None
 urban_mask = np.load('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/lc_masks/urban_mask.npy')
 urban_df = ndvi_arr_indx(fp, urban, urban_mask, 'urban')
 urban_mask = None
-urban_df.to_csv('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/lc_ndvi_ts/urban_ndvi_interp.csv', index=False)
+#urban_df.to_csv('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/lc_ndvi_ts/urban_ndvi_interp.csv', index=False)
