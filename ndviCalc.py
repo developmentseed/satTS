@@ -24,7 +24,7 @@ def ndviCalc(filepath):
         # Open red and nir bands
         geoimg = GeoImage.open(filenames=bands, bandnames=(['red', 'nir']), nodata=0)
 
-        # Calculate NDVI
+        # Calculate NDVI, write to disk
         alg.indices(geoimg, products=['ndvi'], filename=filepath + '/ndvi/' + date + '_ndvi.tif')
 
         geoimg = None
@@ -32,23 +32,3 @@ def ndviCalc(filepath):
 
 fp = '/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/geotiffs'
 ndviCalc(fp)
-
-
-
-
-
-ds1 = gdal.Open(fp + '/ndvi/2017-06-14_ndvi.tif', gdal.GA_ReadOnly)
-
-ds1vals = ds1.GetRasterBand(1).ReadAsArray()
-
-ds1 = None
-
-ds2 = gdal.Open(fp + '/ndvi/2017-08-03_ndvi.tif', gdal.GA_ReadOnly)
-
-ds2vals = ds2.GetRasterBand(1).ReadAsArray()
-
-ds1 = None
-
-import matplotlib.pyplot as plt
-plt.imshow(ds1vals)
-plt.imshow(ds2vals)

@@ -3,8 +3,6 @@ import re
 from os import listdir
 import numpy as np
 from itertools import chain
-import matplotlib.pyplot as plt
-import pandas as pd
 
 
 
@@ -48,37 +46,38 @@ def mask_to_array(files, dates, mask, class_num):
 
 
 
-# Indices of non-nan values in crop mask returns as np.array of dim (#non-nan cells, (rowindex, colindex))
-def get_mask_indices(mask):
-    w = np.argwhere(np.logical_not(np.isnan(mask)))
-    wdf = pd.DataFrame(w)
-    wsub = wdf.loc[wdf[0] == 0, [1,2]]
-    ind = np.array(list(zip(wsub[1], wsub[2])))
-    return ind
-
 
 fp = '/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/geotiffs/ndvi'
 
 # List of file paths to NDVI time-series
 files = [fp + '/' + f for f in listdir(fp)]
-del files[0]
+files.sort()
+del files[0] #.DS_Store file
 
 # Grab dates from NDVI file names
 dates = [re.findall('\d\d\d\d-\d\d-\d\d', f) for f in files]
 dates = set(list(chain.from_iterable(dates)))
 dates = list(dates)
+dates.sort()
 
+# Land cover mask
 mask = '/Users/jameysmith/Documents/sentinel2_tanz/lcrast/lcrast.tif'
+
 
 
 # Crop class: 1 = water, 2 = veg, 3 = cropped, 4 = urban
 water_mask = mask_to_array(files, dates, mask, 1)
+#np.save('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/lc_masks/water_mask.npy', water_mask)
 
 veg_mask = mask_to_array(files, dates, mask, 2)
+#np.save('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/lc_masks/veg_mask.npy', veg_mask)
 
 crop_mask = mask_to_array(files, dates, mask, 3)
+#np.save('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/lc_masks/crop_mask.npy', crop_mask)
 
 urban_mask = mask_to_array(files, dates, mask, 4)
+#np.save('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/lc_masks/urban_mask.npy', urban_mask)
+
 
 
 # We want a matrix for each mask of shape (28, #non-nan pixels)
@@ -97,14 +96,3 @@ crop_mat = crop_ts.reshape((len(crop_mask), int(crop_ts.shape[0] / len(crop_mask
 urb_ts = urban_mask[np.logical_not(np.isnan(urban_mask))]
 urb_mat = urb_ts.reshape((len(urban_mask), int(urb_ts.shape[0] / len(urban_mask))))
 #np.save('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/urb_tsMatrix.npy', urb_mat)
-
-
-# TODO: incorporate array locations into time-series data frames.
-arr = get_mask_indices(crop_mask)
-
-
-
-
-
-
-

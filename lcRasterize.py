@@ -1,4 +1,4 @@
-# A script to rasterise a shapefile to the same projection & pixel resolution as a reference image.
+# A script to rasterize a shapefile to the same projection & pixel resolution as a reference image.
 from osgeo import ogr, gdal
 import numpy as np
 

@@ -19,9 +19,9 @@ def apply_savgol(x, window, poly):
 
 
 def ndvi_dataframe(filepath, lc_list, lc_names, n_samples, long=True, interpolate=True):
-    ''' Generates 1000 random samples of NDVI time-series from each land cover class stored in a list of numpy arrays
+    ''' Generates `n_samples` random samples of NDVI time-series from each land cover class stored in a list of numpy arrays
     and stores in a single dataframe object
-    :param filepath: file patch to
+    :param filepath: file path to ndvi time-series' numpy arrays
     :param lc_list: list of ndvi time-series' numpy arrays
     :param lc_names: str of land cover types included in lc_list
     :param n_samples: int number of samples to select from each lc_list element
@@ -95,5 +95,5 @@ ndvi_smth = ndvi_ts.groupby(['lc', 'pixel']).apply(apply_savgol, 7, 3)
 
 ndvi_smth.to_csv('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/ndvi_ts_smooth.csv', index=False)
 
-
+x = pd.read_csv('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/ndvi_ts_smooth.csv')
 
