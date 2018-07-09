@@ -37,8 +37,8 @@ class BandTimeSeries:
         return ind
 
     def time_series_dataframe(self, interpolate=True):
-        """Create dataframe with ndvi time-series for each pixel in land cover class
-        :return: Dataframe with ndvi time-series per-pixel/land cover class
+        """Create dataframe with band-value time-series for each pixel in land cover class
+        :return: Dataframe with band-value time-series per-pixel/land cover class
         """
 
         # Array indices (from original image) of non-nan values
