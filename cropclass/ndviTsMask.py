@@ -55,20 +55,7 @@ def mask_to_array(files, dates, mask, class_num):
     return arr
 
 
-def array_to_tsmatrix(arr):
-    '''Takes 3d array of a land cover mask time series of shape (num_timesteps, nrows, ncols)
-    and creates a 2d matrix of shape (num_timesteps, #non-nanpixels)
 
-    :param arr (numpy array): 3d array of a time-series of a land cover mask
-
-    :return: Matrix with time-series of values. Each row is a date, each column is a pixel, i.e. one column is
-    a full time-series for a given pixel
-    '''
-
-    vals = arr[np.logical_not(np.isnan(arr))]
-    ts_matrix = vals.reshape((len(arr), int(vals.shape[0] / len(arr))))
-
-    return ts_matrix
 
 
 

@@ -1,22 +1,24 @@
-from tslearn.utils import to_time_series_dataset
-from tslearn.clustering import TimeSeriesKMeans
-from tslearn.clustering import silhouette_score
-import tslearn.clustering as clust
 import pandas as pd
-import matplotlib.pyplot as plt
-from scipy import signal
 import numpy as np
-import itertools
 
 
 class BandTimeSeries:
     """Time-series of image band values for a (masked) land cover class"""
 
     def __init__(self, mask, lc_class, ts_var, dates):
+        """
+        :param mask (numpy array): 3D numpy array corresponding to masked time-series for an image band or index
+        :param lc_class (str): name of land cover class
+        :param ts_var (str): name of variable contained in masked time-series (e.g. 'red', 'ndvi')
+        :param dates (list): list of dates corresponding to time-series
+        """
         self.land_cover_class = lc_class
         self.mask = mask
         self.ts_var = ts_var
-        self.ts_dates = dates
+        if len(dates) == len(mask):
+            self.ts_dates = dates
+        else:
+           raise ValueError('length of dates must match number of time-steps in mask')
 
         # 2D time-series array of shape (num_timesteps, num_non-nan-pixels)
         mask_vals = self.mask[np.logical_not(np.isnan(self.mask))]
@@ -28,7 +30,6 @@ class BandTimeSeries:
         """Get the indices of non-nan values in crop mask
         :return: list of length #non-nan cells with each element a tuple: (rowindex, colindex)
         """
-
         w = np.argwhere(np.logical_not(np.isnan(self.mask)))
         wdf = pd.DataFrame(w)
         wsub = wdf.loc[wdf[0] == 0, [1, 2]]
@@ -36,8 +37,10 @@ class BandTimeSeries:
 
         return ind
 
-    def time_series_dataframe(self, interpolate=True):
+    def time_series_dataframe(self, frequency, interpolate=True):
         """Create dataframe with band-value time-series for each pixel in land cover class
+        :param interpolate (bool): Should time-series be interpolated?
+        :param frequency (str): interpolation frequency, e.g. '1d' for daily, '5d' for 5 days
         :return: Dataframe with band-value time-series per-pixel/land cover class
         """
 
@@ -67,7 +70,7 @@ class BandTimeSeries:
 
         if interpolate:
             ts_df = ts_df.set_index('date').groupby(['lc', 'pixel', 'array_index'])
-            ts_df = ts_df.resample('5d')[self.ts_var].asfreq().interpolate(method='linear').reset_index()
+            ts_df = ts_df.resample(frequency)[self.ts_var].asfreq().interpolate(method='linear').reset_index()
 
         return ts_df
 
@@ -91,5 +94,5 @@ urban_mask = np.load('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/lc_masks/
 
 
 x = BandTimeSeries(mask=urban_mask, lc_class='urban', ts_var='ndvi', dates=dates)
-xx = x.time_series_dataframe()
+xx = x.time_series_dataframe(frequency='5d')
 
