@@ -1,10 +1,6 @@
-from cropclass import tsmask
 from cropclass import tsclust
-from cropclass import ndvicalc
-from os import listdir
-import re
-import matplotlib.pyplot as plt
-import numpy as np
+
+cropdf =
 
 pg = {
     'time_seriesdf': [cropdf],
@@ -19,10 +15,8 @@ pg = {
     'score': [True]
 }
 
-def main(param_grid, df):
+# Grid search on crop land cover class
+pg_dict, pg_df = tsclust.cluster_grid_search(pg)
 
-
-
-
-if __name__ == "__main__":
-    main()
+# Get cluster dataframe corresponding to parameter combination with largest silhouette score
+x = pg_dict['clusters'][pg_df['sil_score'].idxmax()]
