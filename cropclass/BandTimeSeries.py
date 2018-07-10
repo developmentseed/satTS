@@ -74,25 +74,3 @@ class BandTimeSeries:
 
         return ts_df
 
-
-
-### Testing
-
-# List of file paths to NDVI time-series
-fp = '/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/geotiffs/ndvi'
-
-files = [fp + '/' + f for f in listdir(fp)]
-files.sort()
-del files[0]  # .DS Store
-
-# Grab dates from NDVI file names
-dates = [re.findall('\d\d\d\d-\d\d-\d\d', f) for f in files]
-dates = [date for sublist in dates for date in sublist]
-
-# For testing - urban land-cover mask
-urban_mask = np.load('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/lc_masks/urban_mask.npy')
-
-
-x = BandTimeSeries(mask=urban_mask, lc_class='urban', ts_var='ndvi', dates=dates)
-xx = x.time_series_dataframe(frequency='5d')
-

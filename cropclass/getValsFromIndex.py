@@ -2,6 +2,7 @@ import rasterio
 import pandas as pd
 import ast
 
+# TODO: Generalize this to a function that can grap values within a 3d raster stack
 # A random ndvi Sentinel-2 scene
 d = rasterio.open('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/geotiffs/ndvi/2017-07-09_ndvi.tif')
 
