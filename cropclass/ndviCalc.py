@@ -27,7 +27,3 @@ def calulate_ndvi(filepath):
         alg.indices(geoimg, products=['ndvi'], filename=filepath + '/ndvi/' + date + '_ndvi.tif')
 
         geoimg = None
-
-
-fp = '/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/geotiffs'
-calulate_ndvi(fp)
