@@ -58,7 +58,9 @@ def cluster_ndvi_ts(time_seriesdf, n_samples, cluster_alg, n_clusters, smooth=Tr
         ts_sub = ts_sub.groupby(['lc', 'pixel', 'array_index']).apply(apply_savgol, ts_var, window, poly)
 
     # Grab dates for column renaming in reshapes dataframe
-    ts_sub['date'] = ts_sub['date'].dt.strftime('%Y-%m-%d')
+    if ts_sub['date'].dtype != 'O':
+        ts_sub['date'] = ts_sub['date'].dt.strftime('%Y-%m-%d')
+
     dates = ts_sub['date'].unique()
 
     #Generate time_series_dataset object from time-series dataframe

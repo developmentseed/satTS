@@ -1,12 +1,15 @@
 from cropclass import tsclust
+import pandas as pd
 
-cropdf =
+cropdf = pd.read_csv('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/lc_ndvi_ts/crop_ndvi_interp.csv')
+cropdf = cropdf.rename(columns={"array_ind": "array_index"})
 
+# Number of unique pixels (time-series) is 83,403. This is the max 'n_samples' value
 pg = {
     'time_seriesdf': [cropdf],
-    'n_samples': [10],
+    'n_samples': [10000],
     'cluster_alg': ['GAKM', 'TSKM'],
-    'n_clusters': list(range(2, 4)),
+    'n_clusters': list(range(2, 11)),
     'smooth': [True],
     'ts_var': ['ndvi'],
     'window': [7],
@@ -19,4 +22,4 @@ pg = {
 pg_dict, pg_df = tsclust.cluster_grid_search(pg)
 
 # Get cluster dataframe corresponding to parameter combination with largest silhouette score
-x = pg_dict['clusters'][pg_df['sil_score'].idxmax()]
+lowscore = pg_dict['clusters'][pg_df['sil_score'].idxmax()]
