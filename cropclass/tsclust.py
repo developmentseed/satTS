@@ -24,52 +24,45 @@ def apply_savgol(x, value, window, poly):
     return x
 
 
-def cluster_ndvi_ts(time_seriesdf, n_samples, cluster_alg, n_clusters, smooth=True, ts_var=None, window=None,
-                    poly=None, cluster_metric=None, score=False):
-    '''Performs clustering on a dataframe of ndvi time-series' from a given land cover class
+class TimeSeriesSample:
 
-    :param time_seriesdf (pd.Dataframe): long-format dataframe with ndvi time-series'
-    :param n_samples (int): number of pixels (time-series) to cluster
-    :param cluster_alg (str):  which clustering method? Options = "GAKM" for GlobalAlignmentKernelKMeans and "TSKM"
-    for TimeSeriesKMeans
-    :param n_clusters (int): number of cluster
-    :param smooth (bool): apply Savgol filtering? to smooth time-series?
-    :param window (int): window argument to Savgol filtering algorithm
-    :param poly (int): polynomial argument to Savgol filtering algorithm
-    :param cluster_metric (str): only if cluster_alg = "TSKM"; options = 'dtw' for dynamic time warping and 'softdtw'
-    :param score (bool): calculate silhouette score for cluster labels?
+    def __init__(self, time_series_df, n_samples, ts_var, seed):
+        # Take random `n_samples of pixels from time-series dataframe
+        self.ts_var = ts_var
+        self.group = time_series_df.groupby(['lc', 'pixel', 'array_index'])
+        self.arranged_group = np.arange(self.group.ngroups)
 
-    :return: 1) dataframe with cluster labels for each pixel, 2) silhouette score (int)
-    '''
+        # Ensure same pixels are samples each time function is run with same n_samples parameter is supplied
+        np.random.seed(seed)
+        np.random.shuffle(self.arranged_group)
 
-    # Take random `n_samples of pixels from time-series dataframe
-    g = time_seriesdf.groupby(['lc', 'pixel', 'array_index'])
-    a = np.arange(g.ngroups)
+        # Take the random sample
+        self.sample = time_series_df[self.group.ngroup().isin(self.arranged_group[:n_samples])]
 
-    # Ensure same pixels are samples each time function is run with same n_samples parameter is supplied
-    np.random.seed(0)
-    np.random.shuffle(a)
+        if self.sample['date'].dtype != 'O':
+            self.sample['date'] = self.sample['date'].dt.ststrftime('%Y-%m-%d')
 
-    # Take the random sample
-    ts_sub = time_seriesdf[g.ngroup().isin(a[:n_samples])]
+        self.sample_dates = self.sample['date'].unique()
+        self.tslist = self.sample.groupby(['lc', 'pixel', 'array_index'])[self.ts_var].apply(list)
+        self.dataset = None
 
+    def smooth(self, window=7, poly=3):
     # Perform Savgol signal smoothing to each time-series
-    if smooth:
-        ts_sub = ts_sub.groupby(['lc', 'pixel', 'array_index']).apply(apply_savgol, ts_var, window, poly)
+        self.sample = self.sample.groupby(['lc', 'pixel', 'array_index']).apply(apply_savgol, self.ts_var, window, poly)
+        self.tslist = self.sample.groupby(['lc', 'pixel', 'array_index'])[self.ts_var].apply(list)
+        return self
 
-    # Grab dates for column renaming in reshapes dataframe
-    if ts_sub['date'].dtype != 'O':
-        ts_sub['date'] = ts_sub['date'].dt.strftime('%Y-%m-%d')
+    @ property
+    def ts_dataset(self):
+        #tslist = self.sample.groupby(['lc', 'pixel', 'array_index'])[self.ts_var].apply(list)
+        self.dataset = to_time_series_dataset(self.tslist)
+        return self.dataset
 
-    dates = ts_sub['date'].unique()
 
-    #Generate time_series_dataset object from time-series dataframe
-    ts_listdf = ts_sub.groupby(['lc', 'pixel', 'array_index'])[ts_var].apply(list)
-    t = to_time_series_dataset(ts_listdf)
-
+def cluster_time_series(ts_sample, cluster_alg, n_clusters, cluster_metric, score=False):
     # Dataframe to store cluster results
-    clust_df = pd.DataFrame(ts_listdf.tolist(), index=ts_listdf.index).reset_index()
-    clust_df.columns.values[3:] = dates
+    clust_df = pd.DataFrame(ts_sample.tslist.tolist(), index=ts_sample.tslist.index).reset_index()
+    clust_df.columns.values[3:] = ts_sample.sample_dates
 
     # Fit model
     if cluster_alg == "GAKM":
@@ -79,11 +72,11 @@ def cluster_ndvi_ts(time_seriesdf, n_samples, cluster_alg, n_clusters, smooth=Tr
         km = clust.TimeSeriesKMeans(n_clusters=n_clusters, metric=cluster_metric)
 
     # Add predicted cluster labels to cluster results dataframe
-    labels = km.fit_predict(t)
+    labels = km.fit_predict(ts_sample.ts_dataset)
     clust_df['cluster'] = labels
 
     if score:
-        s = silhouette_score(t, labels)
+        s = silhouette_score(ts_sample.ts_dataset, labels)
         return clust_df, s
 
     return clust_df
@@ -105,13 +98,13 @@ def cluster_grid_search(parameter_grid):
 
     # Convert to data frame; use to store silhouette scores
     df = pd.DataFrame(d)
-    df = df.drop(['time_seriesdf'], axis=1)
+    df = df.drop(['ts_sample'], axis=1)
 
     # Perform grid search
     output = {'clusters': [], 'scores': []}
     for values in itertools.product(*parameter_grid.values()):
         # Run clustering function on all combinations of parameters in parameter grid
-        clusters, score = cluster_ndvi_ts(**dict(zip(parameter_grid, values)))
+        clusters, score = cluster_time_series(**dict(zip(parameter_grid, values)))
 
         # 'clusters' = dataframes with cluster results; scores = silhouette scores of corresponding cluster results
         output['clusters'].append(clusters)
