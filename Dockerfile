@@ -1,7 +1,8 @@
 FROM developmentseed/geolambda:latest
 
 RUN \
-    yum makecache fast;
+    yum makecache fast; \
+    pip install cython
 
 ENV \
     PYCURL_SSL_LIBRARY=nss
