@@ -2,7 +2,7 @@ FROM developmentseed/geolambda:latest
 
 RUN \
     yum makecache fast; \
-    pip install cython
+    pip3 install cython
 
 ENV \
     PYCURL_SSL_LIBRARY=nss
@@ -11,7 +11,7 @@ ENV \
 WORKDIR /build
 COPY requirements*txt /build/
 RUN \
-    pip3 install -r requirements.txt; \
+    pip3 install -r requirements.txt;
     #pip3 install -r requirements-dev.txt
 
 # install app
