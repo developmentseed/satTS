@@ -6,18 +6,13 @@ cropdf = pd.read_csv('/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/lc_ndvi_t
 cropdf = cropdf.rename(columns={"array_ind": "array_index"})
 
 cropts = tsclust.TimeSeriesSample(cropdf, n_samples=10, ts_var='ndvi', seed=0)
-cropts_large = tsclust.TimeSeriesSample(cropdf, n_samples=100, ts_var='ndvi', seed=0)
 
 # Number of unique pixels (time-series) is 83,403. This is the max 'n_samples' value
-#ts = cropts
-ts = cropts_large
-#r = list(range(2, 4))
-r = list(range(2, 10))
 
 pg = {
-    'ts_sample': [ts],
+    'ts_sample': [cropts],
     'cluster_alg': ['GAKM', 'TSKM'],
-    'n_clusters': r,
+    'n_clusters': list(range(2, 4)),
     'cluster_metric': ['dtw', 'softdtw'],
     'score': [True]
 }

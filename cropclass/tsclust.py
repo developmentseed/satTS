@@ -6,6 +6,7 @@ from scipy import signal
 import itertools
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def apply_savgol(x, value, window, poly):
@@ -141,3 +142,29 @@ def cluster_mean_quantiles(df):
     q.index = pd.to_datetime(q.index)
 
     return m, q
+
+
+def plot_clusters(cluster_dict, index, fill=True):
+
+    cluster_df = cluster_dict['clusters'][index]
+
+    # Get cluster means and 10th, 90th quantiles
+    m, q = cluster_mean_quantiles(cluster_df)
+
+    # Plot cluster results
+    nclusts = len(cluster_df.cluster.unique())
+    color = iter(plt.cm.Set2(np.linspace(0, 1, nclusts)))
+
+    fig = plt.figure(figsize=(10, 8))
+    cnt = 0
+    for i in range(0, nclusts):
+        # Plot mean time-series for each cluster
+        c = next(color)
+        plt.plot(m.index, m[i], 'k', color=c)
+
+        # Fill 10th and 90th quantile time-series of each cluster
+        if fill:
+            plt.fill_between(m.index, q.iloc[:, [cnt]].values.flatten(), q.iloc[:, [cnt+1]].values.flatten(),
+                             alpha=0.5, edgecolor=c, facecolor=c)
+        cnt += 2
+    plt.legend(loc='upper left')

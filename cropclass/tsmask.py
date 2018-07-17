@@ -103,7 +103,7 @@ def mask_to_array(files, dates, mask, class_num):
 
     for band in range(0, nbands):
         # Open image time-series
-        ndvi_ts = gippy.GeoImage.open(filenames=files, bandnames=(dates), nodata=0, gain=.0001)
+        ndvi_ts = gippy.GeoImage.open(filenames=files, bandnames=dates, nodata=0, gain=.0001)
 
         # Open rasterized landcover
         land_cover = gippy.GeoImage.open(filenames=[mask], bandnames=(['land_cover']), nodata=0)
