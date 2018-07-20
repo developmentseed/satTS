@@ -144,9 +144,12 @@ def cluster_mean_quantiles(df):
     return m, q
 
 
-def plot_clusters(cluster_dict, index, fill=True):
+def plot_clusters(obj, index=None, fill=True):
 
-    cluster_df = cluster_dict['clusters'][index]
+    if type(obj) is dict:
+        cluster_df = obj['clusters'][index]
+    else:
+        cluster_df = obj
 
     # Get cluster means and 10th, 90th quantiles
     m, q = cluster_mean_quantiles(cluster_df)

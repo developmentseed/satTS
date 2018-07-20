@@ -2,98 +2,170 @@ import pandas as pd
 import ast
 import gippy
 from cropclass import tsclust
-from os import listdir
+import sys
+import os
 import re
 import numpy as np
 import pickle
 from keras.utils.np_utils import to_categorical
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
-from keras.layers import Dense, Dropout, Activation
+from keras.layers import Dense
 from keras.layers import LSTM
-import matplotlib.pyplot as plt
-
-# TODO: Generalize this to a function that can grap values within a 3d raster stack
-# A cluster results dataframe with pixels assigned to a cluster
-df = pd.read_csv('/Users/jameysmith/Documents/sentinel2_tanz/clustering/cluster_results/best_clusters.csv',
-                 converters={"array_index": ast.literal_eval})
-
-# Un-smoothed
-pick = '/Users/jameysmith/Documents/sentinel2_tanz/clustering/cluster_results/full_results.p'
-all_results = pickle.load(open(pick, "rb"))
-clustscores = pd.read_csv('/Users/jameysmith/Documents/sentinel2_tanz/clustering/cluster_results/gridsearch_results.csv')
-
-# Smoothed
-clustsmooth = pd.read_csv('/Users/jameysmith/Documents/sentinel2_tanz/clustering/cluster_results/smooth_results/best_clusters.csv')
-pick_smooth = '/Users/jameysmith/Documents/sentinel2_tanz/clustering/cluster_results/smooth_results/full_results.p'
-smooth_results = pickle.load(open(pick_smooth, "rb"))
-smooth_summary = pd.read_csv('/Users/jameysmith/Documents/sentinel2_tanz/clustering/cluster_results/smooth_results/gridsearch_results.csv')
-
-tsclust.plot_clusters(smooth_results, 24, fill=True)
+import random
 
 
+# Final clusters (10k samples)
+clust4 = pd.read_csv('/Users/jameysmith/Documents/sentinel2_tanz/clustering/cluster_results/smooth_results/final_clusters/4_clusters.csv')
+clust4.cluster.value_counts()
+tsclust.plot_clusters(clust4, fill=True)
 
-test = smooth_results['clusters'][24]
-test.cluster.value_counts()
 
-# A random ndvi Sentinel-2 scene
-#fp = '/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/extract_test'
-# NDVI folder
-fp = '/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/geotiffs/ndvi'
-files = [fp + '/' + f for f in listdir(fp)]
-files.sort()
-del files[0]
+def random_ts_samples(file_path, n_samples, seed=None):
 
-dates = [re.findall('\d\d\d\d-\d\d-\d\d', f) for f in files]
-dates = [date for sublist in dates for date in sublist]
+    # CSV files containing time-series' to be samples
+    ts_files = [file_path + '/' + file for file in os.listdir(file_path)]
 
-# For reshaping dataset to fit model
-n_timesteps = len(set(dates))
-n_features = 1 # Only Red and NIR bands in this example
-n_samples = len(test.pixel.unique())
+    np.random.seed(seed)
 
-#names = ['red_01', 'nir_01', 'ndvi_01', 'red_02', 'nir_02', 'ndvi_02']
+    # Sample each dataframe corresponding to a land cover class, store in list
+    dfs = []
+    for file in ts_files:
+        df = pd.read_csv(file)
+        g = df.groupby('pixel')
+        a = np.arange(g.ngroups)
+        np.random.shuffle(a)
+        s = df[g.ngroup().isin(a[:n_samples])]
 
-# Open images in file path
-ts = gippy.GeoImage.open(filenames=files, bandnames=dates, nodata=0, gain=.0001)
+        dfs.append(s)
 
-# Read images to np.arrays
-bandvals = ts.read()
+    # Convert list to single sample dataframe, convert to same shape as cluster results
+    lc_samples = pd.concat(dfs)
+    lc_samples = lc_samples.rename(columns={'lc': 'label', 'array_ind': 'array_index'})
+    lc_samples = lc_samples.pivot_table(index=['array_index', 'label', 'pixel'], columns='date', values='ndvi').reset_index()
 
-# Grab array indices from cluster operation
-x = list(test.array_index)
-x = [elem.strip('()') for elem in x]
-x = [elem.split(',') for elem in x]
-x = [list(map(int, elem)) for elem in x]
-indices = np.array([*x])
+    return lc_samples
 
-## KERAS WANTS INPUT SHAPE: [n_samples, n_timesteps, n_features]
-## This example: 10 samples, 2 timesteps, 2 features at each timestep
-x_vals = bandvals[:, indices[:, 0], indices[:, 1]].T
 
-# Center and
-scaler = MinMaxScaler(feature_range=(0, 1))
-x_scaled = scaler.fit_transform(x_vals)
+ndvi_lc = '/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/lc_ndvi_ts/lc_ndvi_interp'
 
-# Reshape to 3D array for LSTM input
-X = x_scaled.reshape((n_samples, n_timesteps, n_features))
+test = random_ts_samples(ndvi_lc, 5, seed=0)
 
-# Class labels for training data
-y_labels = test.cluster
+clust5 = pd.read_csv('/Users/jameysmith/Documents/sentinel2_tanz/clustering/cluster_results/smooth_results/final_clusters/5_clusters.csv')
+clust5 = clust5.rename(columns={'cluster': 'label'})
+clust5 = clust5.drop(['lc'], axis=1)
 
-# Convert labels to one-hot encoding
-y_onehot = to_categorical(y_labels, num_classes=len(y_labels.unique()))
+dlist = [clust5, test]
+allsamples = pd.concat(dlist)
+
+
+def get_training_data(asset_dir, asset_dict, samples_df):
+    # Array indices corresponding to sample locations in
+    ind = list(samples_df.array_index)
+    ind = [elem.strip('()').split(',') for elem in ind]
+    ind = [list(map(int, elem)) for elem in ind]
+    sample_ind = np.array([*ind])
+
+    # Class labels
+    labels = samples_df.label
+
+    # Full file-path for every asset in `fp` (directory structure = default output of sat-search)
+    file_paths = []
+    for path, subdirs, files in os.walk(asset_dir):
+        for name in files:
+            # Address .DS_Store file issue
+            if not name.startswith('.'):
+                file_paths.append(os.path.join(path, name))
+
+    # Scene dates
+    dates = [re.findall('\d\d\d\d-\d\d-\d\d', f) for f in file_paths]
+    dates = [date for sublist in dates for date in sublist]
+
+    # Asset (band) names
+    pattern = '[^_.]+(?=\.[^_.]*$)'
+    bands = [re.search(pattern, f).group(0) for f in file_paths]
+
+    # Match band names
+    bands = [asset_dict.get(band, band) for band in bands]
+
+    samples_list = []
+    for i in range(0, len(file_paths)):
+
+        img = gippy.GeoImage.open(filenames=[file_paths[i]], bandnames=[bands[i]], nodata=0, gain=0.0001)
+        bandvals = img.read()
+
+        # Extract values at sample indices for band[i] in time-step[i]
+        sample_values = bandvals[sample_ind[:, 0], sample_ind[:, 1]]
+
+        # Store extracted band values as dataframe
+        d = {'feature': bands[i],
+             'value': sample_values,
+             'date': dates[i],
+             'label': labels,
+             'ind': [*sample_ind]}
+
+        # Necessary due to varying column lengths
+        samp = pd.DataFrame(dict([(k, pd.Series(v)) for k, v in d.items()])).ffill()
+        samples_list.append(samp)
+
+    # Combine all samples into single, long-form dataframe
+    training = pd.concat(samples_list)
+
+    # Reshape for time-series generation
+    training['ind'] = tuple(list(training['ind']))
+    training = training.sort_values(by=['ind', 'date'])
+
+    return training
+
+
+# Directory containing time-series of Sentinel-2 scenes corresponding to AOI
+#fp = '/Users/jameysmith/Documents/sentinel2_tanz/aoi_scenes/Sentinel-2A'
+fp = '/Users/jameysmith/Documents/sentinel2_tanz/aoi_scenes/testing'
+
+bd = {'B02': 'blue',
+      'B03': 'green',
+      'B04': 'red',
+      'B08': 'nir'}
+
+t = get_training_data(fp, bd, clust5)
+
+
+
+def format_training_data(training_data, one_hot=True):
+    # Create 3D numpy array from sample values
+    i = training_data.set_index(['date', 'ind', 'feature'])
+    shape = list(map(len, i.index.levels))
+    arr = np.full(shape, np.nan)
+    arr[i.index.labels] = i.values[:,0].flat
+
+    # Kereas LSTM shape: [n_samples, n_timesteps, n_feaures]
+    x = arr.swapaxes(0, 1)
+
+    # Data labels
+    group = training_data.groupby('ind')
+    y = np.array([group.apply(lambda x: x['label'].unique())]).flatten()
+
+    if one_hot:
+        y = to_categorical(y, num_classes=len(training_data['label'].unique()))
+
+    return x, y
+
+
+x, y = format_training_data(t)
 
 # Training and Test sets
-x_train, x_test = X[0:int(X.shape[0]*0.8)], X[int(X.shape[0]*0.8):len(X)]
-y_train, y_test = y_onehot[0:int(y_onehot.shape[0]*0.8)], y_onehot[int(y_onehot.shape[0]*0.8):len(y_onehot)]
+x_train, x_test = x[0:int(x.shape[0]*0.8)], x[int(x.shape[0]*0.8):len(x)]
+y_train, y_test = y[0:int(y.shape[0]*0.8)], y[int(y.shape[0]*0.8):len(y)]
 
-# Train an LSTM model
+# Train LSTM model
+n_timesteps = len(t['date'].unique())
+n_features = len(t['feature'].unique())
+
 model = Sequential()
-model.add(LSTM(20, activation='relu', input_shape=(n_timesteps, n_features)))
-model.add(Dense(activation='softmax', units=y_onehot.shape[1]))
+model.add(LSTM(10, activation='relu', input_shape=(n_timesteps, n_features)))
+model.add(Dense(activation='softmax', units=y.shape[1]))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['categorical_accuracy'])
-model.fit(x_train, y_train, epochs=100, batch_size=32, verbose=2)
-score = model.evaluate(x_test, y_test, batch_size=32)
-score
+model.fit(x_train, y_train, epochs=50, batch_size=32, verbose=2)
+_, accuracy = model.evaluate(x_test, y_test, batch_size=32)
+accuracy
 
