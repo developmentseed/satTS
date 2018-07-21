@@ -23,7 +23,7 @@ The library is divided in to several components:
     
     - `cluster_mean_quantiles` and `plot_clusters` provide methods for inspecting and visualizing cluster results.
     
-3. `training_gen` provides functions for extracting training datasets comprising time-series' of band reflectance values at known locations (x,y numpy array indices) from satelite scenes.
+3. `tstrain` provides functions for extracting training datasets comprising time-series' of band reflectance values at known locations (x,y numpy array indices) from satelite scenes.
 
     -  `random_ts_samples` takes n_samples from .csv files containging reflectance time-series data for a given land cover class. 
     
