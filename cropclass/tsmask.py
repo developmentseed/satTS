@@ -7,7 +7,7 @@ import numpy as np
 
 def rasterize(shapefile, outimg, refimg, attribute):
     ''' Rasterize a shapefile containing land cover polygons. Shapefile should have an attribute
-    called 'id' corresponding to unique land cover class
+    called 'id' corresponding to unique land cover class or other label
 
     :param shapefile (str): file path to shapefile to be rasterized
     :param outimg (str): file path to rasterized image
@@ -90,7 +90,7 @@ def mask_to_array(files, dates, mask, class_num):
     '''
 
     # Grab dimensions to set empty array
-    ts = gippy.GeoImage.open(filenames=files, bandnames=(dates), nodata=0, gain=.0001)
+    ts = gippy.GeoImage.open(filenames=files, bandnames=dates, nodata=0, gain=.0001)
 
     nbands = ts.nbands()
     nrows = ts.ysize()
