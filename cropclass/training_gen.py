@@ -114,7 +114,7 @@ def format_training_data(training_data, one_hot=True, shuffle=True, seed=None):
     # Data labels (Y values); first encode labels as int
     training_data['label'] = training_data['label'].astype('category')
 
-    # # TODO: This is not working. Figure out how to return codes for Y labels
+    # TODO: This is not working. Figure out how to return codes for Y labels
     label_codes = training_data['label'].cat.codes
 
     # Convert labels to int

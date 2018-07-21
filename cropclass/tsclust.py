@@ -33,7 +33,7 @@ class TimeSeriesSample:
         self.group = time_series_df.groupby(['lc', 'pixel', 'array_index'])
         self.arranged_group = np.arange(self.group.ngroups)
 
-        # Ensure same pixels are samples each time function is run with same n_samples parameter is supplied
+        # Ensure same pixels are sampled each time function is run when same `n_samples` parameter is supplied
         np.random.seed(seed)
         np.random.shuffle(self.arranged_group)
 
