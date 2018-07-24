@@ -6,6 +6,7 @@ import os
 import re
 import numpy as np
 import random
+import keras
 from keras.utils.np_utils import to_categorical
 from sklearn.preprocessing import MinMaxScaler
 
