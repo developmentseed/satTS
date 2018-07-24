@@ -1,9 +1,11 @@
-from cropclass import training_gen
+from cropclass import tstrain
 from cropclass import tsclust
+from cropclass import ndvicalc
 import pandas as pd
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import LSTM
+
 
 
 # Clustered NDVI time-series data for cropped area; 5 clusters
@@ -21,7 +23,7 @@ tsclust.plot_clusters(clust5, fill=True)
 ndvi_lc = '/Users/jameysmith/Documents/sentinel2_tanz/aoiTS/lc_ndvi_ts/lc_ndvi_interp'
 
 # Take n_samples of each non-crop land cover class
-noncrop_samples = training_gen.random_ts_samples(ndvi_lc, n_samples=5000, seed=0)
+noncrop_samples = tstrain.random_ts_samples(ndvi_lc, n_samples=5000, seed=0)
 
 # Rename and drop columns to allow concatination of crop and non-crop samples
 clust5 = clust5.rename(columns={'cluster': 'label'})
@@ -31,6 +33,18 @@ clust5 = clust5.drop(['lc'], axis=1)
 dlist = [clust5, noncrop_samples]
 allsamples = pd.concat(dlist, ignore_index=True)
 
+
+## ADD INDEX BANDS
+filepath = '/Users/jameysmith/Documents/sentinel2_tanz/aoi_scenes/testing'
+
+asset_dict = {'B02': 'blue',
+              'B03': 'green',
+              'B04': 'red',
+              'B08': 'nir'}
+
+indices = ['ndvi', 'evi']
+
+ndvicalc.calulate_indices(filepath, asset_dict, indices)
 
 
 # STEP 2: Using raster index locations from `allsamples` (Step 1), extract band reflectance values from a
@@ -46,10 +60,10 @@ bd = {'B02': 'blue',
       'B08': 'nir'}
 
 # Extract training data from Sentinel-2 time-series
-training_data = training_gen.get_training_data(fp, bd, allsamples)
+training_data = tstrain.get_training_data(fp, bd, allsamples, scale=False)
+training_data_scaled = tstrain.get_training_data(fp, bd, allsamples, scale=True)
 
-
-
+training_data = training_data[training_data['feature'] != 'evi']
 # STEP 3: Fit a LSTM recurrent neural network. In this 'toy' example, a total of 25,000 samples are used to fit a model.
 #         including 10,000 from the clustered "cropped" class, and 5,000 from each of the "water", "urban" and
 #         "vegetation" classes. The bands (features) include red, blue, green, and nir. Y labels are numerically
@@ -57,7 +71,7 @@ training_data = training_gen.get_training_data(fp, bd, allsamples)
 
 # Format training data into correct 3D array of shape (n_samples, n_timesetps, n_features) required to fit a
 # Keras LSTM model. N_features corresponds to number of bands included in training data
-class_codes, x, y = training_gen.format_training_data(training_data, shuffle=True, seed=0)
+class_codes, x, y = tstrain.format_training_data(training_data, shuffle=True, seed=0)
 
 # Split training and test data
 x_train, x_test = x[0:int(x.shape[0]*0.8)], x[int(x.shape[0]*0.8):len(x)]
