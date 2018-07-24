@@ -1,6 +1,6 @@
 from cropclass import tsmask
 from cropclass import tsclust
-from cropclass import ndvicalc
+from archive import ndvicalc
 from os import listdir
 import re
 import matplotlib.pyplot as plt

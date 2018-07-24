@@ -1,6 +1,6 @@
 from cropclass import tstrain
 from cropclass import tsclust
-from cropclass import ndvicalc
+from archive import ndvicalc
 import pandas as pd
 from keras.models import Sequential
 from keras.layers import Dense
