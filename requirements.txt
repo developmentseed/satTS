@@ -6,3 +6,6 @@ matplotlib~=2.2.2
 Cython~=0.28.2
 tslearn~=0.1.18.3
 scikit-learn~=0.19.1
+Keras~=2.2.0
+Keras-Applications~=1.0.2
+Keras-Preprocessing~=1.0.1
