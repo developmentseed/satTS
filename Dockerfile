@@ -10,8 +10,7 @@ RUN \
     pip3 install scipy; \
     pip3 install PyYAML; \
     pip3 install six; \
-    pip3 install whell; \
-    pip3 install shpinx;
+    pip3 install wheel; \
 
 # Install TensorFlow
 RUN pip --no-cache-dir install \
