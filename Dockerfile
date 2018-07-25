@@ -2,7 +2,10 @@ FROM developmentseed/geolambda:latest
 
 RUN \
     yum makecache fast; \
-    pip3 install cython
+    pip3 install cython;
+    pip3 install PyYAML;
+    pip3 install scipy;
+    pip3 install tensorflow;
 
 ENV \
     PYCURL_SSL_LIBRARY=nss
