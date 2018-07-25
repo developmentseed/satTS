@@ -4,20 +4,11 @@ ARG TENSORFLOW_VERSION=1.1.0
 ARG TENSORFLOW_ARCH=cpu
 ARG KERAS_VERSION=2.2.0
 
-# Install useful Python packages using apt-get to avoid version incompatibilities with Tensorflow binary
-# especially numpy, scipy, skimage and sklearn (see https://github.com/tensorflow/tensorflow/issues/2034)
-RUN apt-get update && apt-get install -y \
-		python-scipy \
-        	python-PyYAML \
-		python-sympy \
-		&& \
-	apt-get clean && \
-	apt-get autoremove && \
-	rm -rf /var/lib/apt/lists/*
-
 RUN \
     yum makecache fast; \
     pip3 install cython; \
+    pip3 install scipy; \
+    pip3 install PyYAML; \
     pip3 install six; \
     pip3 install whell; \
     pip3 install shpinx;
