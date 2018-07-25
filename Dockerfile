@@ -6,8 +6,6 @@ RUN \
 RUN pip3 install --upgrade pip
 RUN pip3 install cython
 RUN pip3 install pyyaml h5py 
-RUN pip3 install keras-applications
-RUN pip3 install keras-preprocessing
 
 ENV \
     PYCURL_SSL_LIBRARY=nss
