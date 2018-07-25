@@ -11,14 +11,6 @@ RUN pip3 install keras-applications
 RUN pip3 install keras-preprocessing
 RUN pip3 install keras --no-deps
 
-# Jupyter and Tensorboard ports
-EXPOSE 8888 6006
-
-# Store notebooks in this mounted directory
-VOLUME /notebooks
-
-CMD ["/run_jupyter.sh"]
-
 ENV \
     PYCURL_SSL_LIBRARY=nss
 
@@ -28,6 +20,14 @@ COPY requirements*txt /build/
 RUN \
     pip3 install -r requirements.txt;
     #pip3 install -r requirements-dev.txt
+
+# Jupyter and Tensorboard ports
+EXPOSE 8888 6006
+
+# Store notebooks in this mounted directory
+VOLUME /notebooks
+
+CMD ["/run_jupyter.sh"]
 
 # install app
 COPY . /build
