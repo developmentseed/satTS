@@ -8,7 +8,7 @@ ARG KERAS_VERSION=2.2.0
 # especially numpy, scipy, skimage and sklearn (see https://github.com/tensorflow/tensorflow/issues/2034)
 RUN apt-get update && apt-get install -y \
 		python-scipy \
-        python-PyYAML \
+        	python-PyYAML \
 		python-sympy \
 		&& \
 	apt-get clean && \
