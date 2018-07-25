@@ -7,6 +7,8 @@ RUN pip3 install --upgrade pip
 RUN pip3 install cython
 RUN pip3 install tensorflow 
 RUN pip3 install pyyaml h5py jupyter
+RUN pip3 install keras-applications
+RUN pip3 install keras-preprocessing
 RUN pip3 install keras --no-deps
 
 # Jupyter and Tensorboard ports
