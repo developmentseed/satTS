@@ -1,23 +1,21 @@
 FROM developmentseed/geolambda:latest
 
-ARG TENSORFLOW_VERSION=1.1.0 
-ARG TENSORFLOW_ARCH=cpu
-ARG KERAS_VERSION=2.2.0
-
 RUN \
-    yum makecache fast; \
-    pip3 install cython; \
-    pip3 install scipy; \
-    pip3 install PyYAML; \
-    pip3 install six; \
-    pip3 install wheel; \
+    yum makecache fast;
+    
+RUN pip3 install --upgrade pip
+RUN pip3 install cython
+RUN pip3 install tensorflow 
+RUN pip3 install pyyaml h5py jupyter
+RUN pip3 install keras --no-deps
 
-# Install TensorFlow
-RUN pip --no-cache-dir install \
-	https://storage.googleapis.com/tensorflow/linux/${TENSORFLOW_ARCH}/tensorflow-${TENSORFLOW_VERSION}-cp27-none-linux_x86_64.whl
+# Jupyter and Tensorboard ports
+EXPOSE 8888 6006
 
-# Install Keras
-RUN pip --no-cache-dir install git+git://github.com/fchollet/keras.git@${KERAS_VERSION}
+# Store notebooks in this mounted directory
+VOLUME /notebooks
+
+CMD ["/run_jupyter.sh"]
 
 ENV \
     PYCURL_SSL_LIBRARY=nss
