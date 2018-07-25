@@ -7,5 +7,7 @@ Cython~=0.28.2
 tslearn~=0.1.18.3
 scikit-learn~=0.19.1
 tensorflow
-keras --no-deps
+keras-preprocessing
+keras-applications
+keras 
 jupyter
