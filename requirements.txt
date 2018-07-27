@@ -6,5 +6,8 @@ matplotlib~=2.2.2
 Cython~=0.28.2
 tslearn~=0.1.18.3
 scikit-learn~=0.19.1
-tensorflow~=1.9.0
-keras~=2.2.0
+tensorflow
+keras-preprocessing
+keras-applications
+keras 
+jupyter
