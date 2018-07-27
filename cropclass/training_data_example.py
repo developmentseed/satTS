@@ -1,6 +1,5 @@
 from cropclass import tstrain
 from cropclass import tsclust
-from archive import ndvicalc
 import pandas as pd
 from keras.models import Sequential
 from keras.layers import Dense
@@ -34,17 +33,17 @@ dlist = [clust5, noncrop_samples]
 allsamples = pd.concat(dlist, ignore_index=True)
 
 
-## ADD INDEX BANDS
-filepath = '/Users/jameysmith/Documents/sentinel2_tanz/aoi_scenes/testing'
-
-asset_dict = {'B02': 'blue',
-              'B03': 'green',
-              'B04': 'red',
-              'B08': 'nir'}
-
-indices = ['ndvi', 'evi']
-
-ndvicalc.calulate_indices(filepath, asset_dict, indices)
+# ## ADD INDEX BANDS
+# filepath = '/Users/jameysmith/Documents/sentinel2_tanz/aoi_scenes/testing'
+#
+# asset_dict = {'B02': 'blue',
+#               'B03': 'green',
+#               'B04': 'red',
+#               'B08': 'nir'}
+#
+# indices = ['ndvi', 'evi']
+#
+# ndvicalc.calulate_indices(filepath, asset_dict, indices)
 
 
 # STEP 2: Using raster index locations from `allsamples` (Step 1), extract band reflectance values from a
@@ -60,10 +59,10 @@ bd = {'B02': 'blue',
       'B08': 'nir'}
 
 # Extract training data from Sentinel-2 time-series
-training_data = tstrain.get_training_data(fp, bd, allsamples, scale=False)
-training_data_scaled = tstrain.get_training_data(fp, bd, allsamples, scale=True)
+training_data_stand = tstrain.get_training_data(fp, bd, allsamples, standardize=True)
+#training_data = tstrain.get_training_data(fp, bd, allsamples, standardize=False)
 
-training_data = training_data[training_data['feature'] != 'evi']
+
 # STEP 3: Fit a LSTM recurrent neural network. In this 'toy' example, a total of 25,000 samples are used to fit a model.
 #         including 10,000 from the clustered "cropped" class, and 5,000 from each of the "water", "urban" and
 #         "vegetation" classes. The bands (features) include red, blue, green, and nir. Y labels are numerically
@@ -71,22 +70,26 @@ training_data = training_data[training_data['feature'] != 'evi']
 
 # Format training data into correct 3D array of shape (n_samples, n_timesetps, n_features) required to fit a
 # Keras LSTM model. N_features corresponds to number of bands included in training data
-class_codes, x, y = tstrain.format_training_data(training_data, shuffle=True, seed=0)
+class_codes, x, y = tstrain.format_training_data(training_data_stand, shuffle=False)
 
 # Split training and test data
-x_train, x_test = x[0:int(x.shape[0]*0.8)], x[int(x.shape[0]*0.8):len(x)]
-y_train, y_test = y[0:int(y.shape[0]*0.8)], y[int(y.shape[0]*0.8):len(y)]
+x_train, x_test, y_train, y_test = tstrain.split_train_test(x, y, seed=0)
 
 # Train LSTM model
-n_timesteps = len(training_data['date'].unique())
-n_features = len(training_data['feature'].unique())
+n_timesteps = len(training_data_stand['date'].unique())
+n_features = len(training_data_stand['feature'].unique())
 
 model = Sequential()
-model.add(LSTM(32, activation='relu', input_shape=(n_timesteps, n_features)))
+model.add(LSTM(32, activation='relu', return_sequences=True, input_shape=(n_timesteps, n_features)))
+model.add(LSTM(32, activation='relu', return_sequences=True))
+model.add(LSTM(32))
 model.add(Dense(activation='softmax', units=y.shape[1]))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['categorical_accuracy'])
 model.fit(x_train, y_train, epochs=50, batch_size=32, verbose=2)
-_, accuracy = model.evaluate(x_test, y_test, batch_size=32)
 
 # Model accuracy
+_, accuracy = model.evaluate(x_test, y_test, batch_size=32)
 accuracy
+
+# Confusion matrix
+tstrain.conf_mat(x_test, y_test, model, class_codes)

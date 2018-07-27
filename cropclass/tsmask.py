@@ -198,5 +198,3 @@ class BandTimeSeries:
             ts_df = ts_df.resample(frequency)[self.ts_var].asfreq().interpolate(method='linear').reset_index()
 
         return ts_df
-
-

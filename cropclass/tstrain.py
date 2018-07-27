@@ -5,11 +5,10 @@ import gippy.algorithms as alg
 import os
 import re
 import numpy as np
-import random
-import keras
 from keras.utils.np_utils import to_categorical
-from sklearn.preprocessing import MinMaxScaler
-
+from sklearn.utils import shuffle
+from sklearn import preprocessing
+from sklearn.metrics import confusion_matrix
 
 
 def random_ts_samples(file_path, n_samples, seed=None):
@@ -81,7 +80,7 @@ def calulate_indices(filepath, asset_dict, indices):
         img = None
 
 
-def get_training_data(asset_dir, asset_dict, samples_df, scale=True):
+def get_training_data(asset_dir, asset_dict, samples_df, standardize=True):
     ''' Create a dataset of n_features (bands) at each samples location for n_timeseteps
 
     :param asset_dir (str): File path to directory containing satellite scenes downloaded using the default
@@ -89,7 +88,6 @@ def get_training_data(asset_dir, asset_dict, samples_df, scale=True):
     :param asset_dict (dict): Keys = asset (band) names in scene files (e.g. 'B01', 'B02'); Values = value names
                               corresponding to keys (e.g. 'red', 'nir')
     :param samples_df (pd.DataFrame): pd.DataFrame with samples locations for each land cover class
-    # TODO: think about additional (maybe more appropriate) normalization methods
     :param scale (bool): Scale features using sklearn.preprecessing.MinMaxScaler()
 
     :return: pd.DataFrame with time-series of n_features (band refectance values) for each sample location
@@ -142,10 +140,9 @@ def get_training_data(asset_dir, asset_dict, samples_df, scale=True):
         # Necessary due to varying column lengths
         samp = pd.DataFrame(dict([(k, pd.Series(v)) for k, v in d.items()])).ffill()
 
-        # Scale band values to between 0 and 1
-        if scale:
-            scaler = MinMaxScaler()
-            samp['value'] = scaler.fit_transform(samp['value'])
+        # Zero mean and unit variance for feature
+        if standardize:
+            samp['value'] = preprocessing.scale(samp['value'])
 
         samples_list.append(samp)
 
@@ -159,24 +156,17 @@ def get_training_data(asset_dir, asset_dict, samples_df, scale=True):
     return training
 
 
-def format_training_data(training_data, one_hot=True, shuffle=True, seed=None):
+def format_training_data(training_data, one_hot=True, seed=None):
     ''' Format time-series of reflectance data for fitting a Keras Sequential model
 
     :param training_data (pd.DataFrame): output of get_training_data
     :param one_hot (bool): Format response variable to one-hot encoded vectors?
-    :param shuffle (bool): Random shuffle of training data (for better train/test splits)
     :param seed (bool): Set a seed to generate same train/test datasets repeatedly
 
     :return: X (feature) matrix , Y (response) matrix, codes (dict) for Y-labels
     '''
 
     np.random.seed(seed)
-
-    # Shuffle data
-    if shuffle:
-        groups = [df for _, df in training_data.groupby(['date', 'ind', 'feature'])]
-        random.shuffle(groups)
-        training_data = pd.concat(groups).reset_index(drop=True)
 
     # Create 3D numpy array from sample values
     i = training_data.set_index(['date', 'ind', 'feature'])
@@ -208,3 +198,37 @@ def format_training_data(training_data, one_hot=True, shuffle=True, seed=None):
 
     return label_codes, x, y
 
+
+def split_train_test(x, y, seed=0, prop_train=0.8):
+    ''' Generate training and test datasets for keras LSTM
+
+    :param x (np.array): dataset of shape (n_samples, n_features, n_timesteps)
+    :param y (np.array): data labels of shape (n_classes, n_samples); likely one-hot encoded vectors
+    :param seed (int): for shuffling data
+    :param prop_train (float): proportion of dataset to use for training; default = 0.8 for 80/20 train/test split
+
+    :return:  x and y matrices for train/test sets
+    '''
+    x, y = shuffle(x, y, random_state=seed)
+
+    x_train, x_test = x[0:int(x.shape[0] * prop_train)], x[int(x.shape[0] * prop_train):len(x)]
+    y_train, y_test = y[0:int(y.shape[0] * prop_train)], y[int(y.shape[0] * prop_train):len(y)]
+
+    return x_train, x_test, y_train, y_test
+
+
+def conf_mat(x_test, y_test, model, label_dict):
+
+    # Model predictions on test set
+    predictions = model.predict(x_test)
+    y_pred = (predictions > 0.5)
+
+    # Generate confusion matrix
+    matrix = confusion_matrix(y_test.argmax(axis=1), y_pred.argmax(axis=1))
+
+    # Add data labels and per-class recall
+    tp = matrix.diagonal()
+    cm = pd.DataFrame(matrix, index=list(label_dict.values()), columns=list(label_dict.values()))
+    cm['recall'] = tp / cm.sum(axis=1)
+
+    return cm
