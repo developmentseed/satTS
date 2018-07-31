@@ -8,12 +8,19 @@ from keras.layers import LSTM
 
 
 # Clustered NDVI time-series data for cropped area; 5 clusters
+clust4 = pd.read_csv('/Users/jameysmith/Documents/sentinel2_tanz/clustering/cluster_results/smooth_results/final_clusters/4_clusters.csv')
 clust5 = pd.read_csv('/Users/jameysmith/Documents/sentinel2_tanz/clustering/cluster_results/smooth_results/final_clusters/5_clusters.csv')
+clust6 = pd.read_csv('/Users/jameysmith/Documents/sentinel2_tanz/clustering/cluster_results/smooth_results/final_clusters/6_clusters.csv')
 
 # Visualize cluster results (shows cluster mean and 10th, 90th percentile for each date in time-series)
-tsclust.plot_clusters(clust5, fill=True)
+tsclust.plot_clusters(clust4, fill=True, title='4 Clusters', save=True, filename='/Users/jameysmith/Documents/sentinel2_tanz/blog_images/4_clusters_fill.png')
+tsclust.plot_clusters(clust4, fill=False, title='4 Clusters', save=True, filename='/Users/jameysmith/Documents/sentinel2_tanz/blog_images/4_clusters.png')
 
+tsclust.plot_clusters(clust5, fill=True, title='5 Clusters', save=True, filename='/Users/jameysmith/Documents/sentinel2_tanz/blog_images/5_clusters_fill.png')
+tsclust.plot_clusters(clust5, fill=False, title='5 Clusters', save=True, filename='/Users/jameysmith/Documents/sentinel2_tanz/blog_images/5_clusters.png')
 
+tsclust.plot_clusters(clust6, fill=True, title='6 Clusters', save=True, filename='/Users/jameysmith/Documents/sentinel2_tanz/blog_images/6_clusters_fill.png')
+tsclust.plot_clusters(clust6, fill=False, title='6 Clusters', save=True, filename='/Users/jameysmith/Documents/sentinel2_tanz/blog_images/6_clusters.png')
 
 # STEP 1: Combine samples from clustered, cropped area, and other land cover clusters into single dataset
 #         for model fitting. `ndvi_lc` is file path to .csv files containing NDVI time-series' from vegetation,
@@ -32,18 +39,6 @@ clust5 = clust5.drop(['lc'], axis=1)
 dlist = [clust5, noncrop_samples]
 allsamples = pd.concat(dlist, ignore_index=True)
 
-
-# ## ADD INDEX BANDS
-# filepath = '/Users/jameysmith/Documents/sentinel2_tanz/aoi_scenes/testing'
-#
-# asset_dict = {'B02': 'blue',
-#               'B03': 'green',
-#               'B04': 'red',
-#               'B08': 'nir'}
-#
-# indices = ['ndvi', 'evi']
-#
-# ndvicalc.calulate_indices(filepath, asset_dict, indices)
 
 
 # STEP 2: Using raster index locations from `allsamples` (Step 1), extract band reflectance values from a
@@ -70,7 +65,7 @@ training_data_stand = tstrain.get_training_data(fp, bd, allsamples, standardize=
 
 # Format training data into correct 3D array of shape (n_samples, n_timesetps, n_features) required to fit a
 # Keras LSTM model. N_features corresponds to number of bands included in training data
-class_codes, x, y = tstrain.format_training_data(training_data_stand, shuffle=False)
+class_codes, x, y = tstrain.format_training_data(training_data_stand)
 
 # Split training and test data
 x_train, x_test, y_train, y_test = tstrain.split_train_test(x, y, seed=0)

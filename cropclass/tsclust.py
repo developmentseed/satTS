@@ -144,7 +144,7 @@ def cluster_mean_quantiles(df):
     return m, q
 
 
-def plot_clusters(obj, index=None, fill=True):
+def plot_clusters(obj, index=None, fill=True, title=None, save=False, filename=None):
 
     if type(obj) is dict:
         cluster_df = obj['clusters'][index]
@@ -170,4 +170,19 @@ def plot_clusters(obj, index=None, fill=True):
             plt.fill_between(m.index, q.iloc[:, [cnt]].values.flatten(), q.iloc[:, [cnt+1]].values.flatten(),
                              alpha=0.5, edgecolor=c, facecolor=c)
         cnt += 2
+
+    # Legend and title
     plt.legend(loc='upper left')
+    plt.title(title)
+
+    # Axis labels
+    ax = fig.add_subplot(111)
+    ax.set_xlabel('Date')
+    ax.set_ylabel('NDVI')
+
+    if save:
+        pattern = '.png'
+        if not pattern in filename:
+            raise ValueError('File type should be .png')
+        fig.savefig(filename)
+

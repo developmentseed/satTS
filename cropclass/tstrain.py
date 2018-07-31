@@ -90,7 +90,7 @@ def get_training_data(asset_dir, asset_dict, samples_df, standardize=True):
     :param samples_df (pd.DataFrame): pd.DataFrame with samples locations for each land cover class
     :param scale (bool): Scale features using sklearn.preprecessing.MinMaxScaler()
 
-    :return: pd.DataFrame with time-series of n_features (band refectance values) for each sample location
+    :return: pd.DataFrame with time-series of n_features (band reflectance values) for each sample location
     '''
 
     # Array indices corresponding to sample locations
