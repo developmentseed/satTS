@@ -151,7 +151,7 @@ def get_training_data(asset_dir, asset_dict, samples_df, standardize=True):
 
     # Reshape for time-series generation
     training['ind'] = tuple(list(training['ind']))
-    training = training.sort_values(by=['ind', 'date'])
+    training = training.sort_values(by=['ind', 'date', 'feature'])
 
     return training
 
