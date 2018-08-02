@@ -48,7 +48,7 @@ class TimeSeriesSample:
         self.dataset = None
 
     def smooth(self, window=7, poly=3):
-    # Perform Savgol signal smoothing to each time-series
+        # Perform Savgol signal smoothing to each time-series
         self.sample = self.sample.groupby(['lc', 'pixel', 'array_index']).apply(apply_savgol, self.ts_var, window, poly)
         self.tslist = self.sample.groupby(['lc', 'pixel', 'array_index'])[self.ts_var].apply(list)
         return self

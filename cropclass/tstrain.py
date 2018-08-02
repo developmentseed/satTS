@@ -217,6 +217,18 @@ def split_train_test(x, y, seed=0, prop_train=0.8):
     return x_train, x_test, y_train, y_test
 
 
+def standardize_features(x_train, x_test):
+    '''Standardize features of 3D array formated for keras sequential model'''
+
+    mu = x_train.mean(axis=(0, 1))
+    sd = x_train.std(axis=(0, 1))
+
+    x_train_norm = (x_train - mu) / sd
+    x_test_norm = (x_test - mu) / sd
+
+    return mu, sd, x_train_norm, x_test_norm
+
+
 def conf_mat(x_test, y_test, model, label_dict):
 
     # Model predictions on test set
