@@ -11,3 +11,4 @@ keras-preprocessing
 keras-applications
 keras 
 jupyter
+findspark
