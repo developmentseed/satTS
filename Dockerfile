@@ -15,7 +15,6 @@ WORKDIR /build
 COPY requirements*txt /build/
 RUN \
     pip3 install -r requirements.txt;
-    #pip3 install -r requirements-dev.txt
 
 # Jupyter and Tensorboard ports
 EXPOSE 8888 6006
