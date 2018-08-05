@@ -30,4 +30,7 @@ RUN \
     pip3 install . -v; \
     rm -rf /build/*;
 
-WORKDIR /home/geolambda
+WORKDIR /code
+ADD testing/ /code/testing
+ADD cropclass/ /code/cropclass
+ADD model/ /code/model
