@@ -12,3 +12,4 @@ keras-applications
 keras 
 jupyter
 findspark
+rasterio
