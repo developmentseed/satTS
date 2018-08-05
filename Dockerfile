@@ -30,7 +30,7 @@ RUN \
     pip3 install . -v; \
     rm -rf /build/*;
 
-WORKDIR /code
-ADD testing/ /code/testing
-ADD cropclass/ /code/cropclass
-ADD model/ /code/model
+WORKDIR /notebooks
+ADD testing/ /notebooks/testing
+ADD cropclass/ /notebooks/cropclass
+ADD model/ /notebooks/model
