@@ -1,114 +1,85 @@
 import os
 import gippy
 import numpy as np
-from sklearn import preprocessing
-import matplotlib.pyplot as plt
-from matplotlib import colors
-import matplotlib.patches as mpatches
-from itertools import chain
+from osgeo import ogr, gdal
 
 
-fp = '/Users/jameysmith/Documents/sentinel2_tanz/aoi_scenes/testing'
+def format_scene(file_path, mu, sd):
 
-# Filepath points to folder of geotiffs of Sentinel 2 time-series of bands 4 (red) and 8 (nir)
-scenes = [fp + '/' + f for f in os.listdir(fp) if not f.startswith('.')]
-scenes.sort()
+    # Folders containing band values for a given date
+    scenes = [file_path + '/' + f for f in os.listdir(file_path) if not f.startswith('.')]
+    scenes.sort()
 
-allbands = []
-for s in scenes:
-    bands = [s + '/' + b for b in os.listdir(s) if not b.startswith('.')]
-    allbands.append(bands)
+    # Sorted to ensure the 2D arrays are placed in same order as features in the trained model
+    all_dates = []
+    for s in scenes:
+        bands = [s + '/' + b for b in os.listdir(s) if not b.startswith('.')]
+        bands.sort()
+        all_dates.append(bands)
 
-all_vals = []
-for date in allbands:
+    # Get dimensions for the final 3D input array for Keras model
+    get_shape = gippy.GeoImage.open(filenames=[all_dates[0][0]])
 
-    img = gippy.GeoImage.open(filenames=date, bandnames=['ndvi', 'green', 'blue'], nodata=0, gain=0.0001)
+    n_samples = get_shape.xsize() * get_shape.ysize()
+    n_timesteps = len(scenes)
+    n_features = len(all_dates[0])
 
-    flat_list = []
-    for b in img.bandnames():
-        # Read a single band from a single date
-        band_vals = img[b].read()
+    # Close image
+    get_shape = None
 
-        # Flatten
-        flat_vals = band_vals.flatten()
-        flat_list.append(flat_vals)
+    # All band values for all dates in time-series
+    full_scene = np.empty([n_samples, n_timesteps, n_features])
+    for date in range(0, len(all_dates)):
+        geoimg = gippy.GeoImage.open(filenames=all_dates[date], nodata=0, gain=0.0001)
 
-    # A flattened array of all band values from a single scene
-    band_flat = np.stack([arr for arr in flat_list]).T
-    all_vals.append(band_flat)
+        scene_vals = np.empty([n_samples, n_features])
+        for i in range(0, geoimg.nbands()):
+            arr = geoimg[i].read()
+            flat = arr.flatten()
+            scene_vals[:, i] = flat
 
-# All data from all dates/bands
-av = np.stack([arr for arr in all_vals])
+        geoimg = None
 
-# Reshape to (num_samples, num_timesteps, num_features)
-avs = av.swapaxes(1, 0)
+        full_scene[:, date, :] = scene_vals
 
+    # Normalize data with mu and sd from model training data
+    full_norm = (full_scene - mu) / sd
 
-# With Chunking
-scene_files = list(chain.from_iterable(allbands))
-bandnames=['ndvi', 'green', 'blue']
-
-geoimg = gippy.GeoImage.open(filenames=scene_files, nodata=0, gain=0.0001)
-
-for ch in geoimg.chunks(numchunks=100):
-    flat_list = []
-    for band in geoimg.bandnames():
-        arr = geoimg[band].read(chunk=ch)
-        flat_band = arr.flatten()
-        flat_list.append(flat_band)
+    return full_norm
 
 
+def classified_scene(formatted_scene, model, refimg, outimg):
+    img = gdal.Open(refimg, gdal.GA_ReadOnly)
 
+    # Fetch dimensions of reference raster
+    ncol = img.RasterXSize
+    nrow = img.RasterYSize
 
+    # Projection and extent of raster reference
+    proj = img.GetProjectionRef()
+    ext = img.GetGeoTransform()
 
+    # Close reference image
+    img = None
 
-# Make predictions
-pred = model.predict(avs)
-#np.save('/Users/jameysmith/Documents/sentinel2_tanz/aoi_scenes/predictions.npy', pred)
-pred = np.load('/Users/jameysmith/Documents/sentinel2_tanz/aoi_scenes/predictions.npy')
-pred_bool = (pred > 0.5)
+    # Allocate memory for prediction image
+    memdrive = gdal.GetDriverByName('GTiff')
+    outrast = memdrive.Create(outimg, ncol, nrow, 1, gdal.GDT_Int16)
 
-pred_class = pred_bool.argmax(axis=1)
+    # Set prediction image's projection and extent to input image projection and extent
+    outrast.SetProjection(proj)
+    outrast.SetGeoTransform(ext)
 
-# NEED TO STORE band_vals.shape OUTSIDE OF LOOP
-pred_mat = pred_class.reshape(-1, band_vals.shape[1])
+    # Model predictions
+    preds = model.predict(formatted_scene)
+    pred_bool = (preds > 0.5)
+    pred_class = pred_bool.argmax(axis=1)
 
-unique, counts = np.unique(pred_mat, return_counts=True)
-print(np.asarray((unique, counts)).T)
+    # Reshape to match 2D image array
+    pred_mat = pred_class.reshape(nrow, ncol)
 
-classes = np.unique(pred_mat)
-labs = ['Cluster 1', 'Cluster 2', 'Cluster 3', 'Cluster 4', 'Cluster 5', 'Urban', 'Vegetation', 'Water']
+    # Fill output image with the predicted class values
+    b = outrast.GetRasterBand(1)
+    b.WriteArray(pred_mat)
 
-labels = {0: 'Cluster 1',
-          1: 'Cluster 2',
-          2: 'Cluster 3',
-          3: 'Cluster 4',
-          4: 'Cluster 5',
-          5: 'Urban',
-          6: 'Vegetation',
-          7: 'Water'}
-
-cols = {0: '#e41a1c',
-        1: '#377eb8',
-        2: '#4daf4a',
-        3: '#984ea3',
-        4: '#ff7f00',
-        5: '#ffff33',
-        6: '#a65628',
-        7: '#f781bf'}
-
-cmap = colors.ListedColormap(['#e41a1c', '#377eb8', '#4daf4a', '#984ea3',
-                              '#ff7f00', '#ffff33', '#a65628', '#f781bf'])
-
-fig = plt.figure(figsize=(10, 8))
-im = plt.imshow(pred_mat, cmap=cmap)
-patches = [mpatches.Patch(color=cols[i], label=labels[i]) for i in cols]
-plt.legend(handles=patches, bbox_to_anchor=(1.04, 1), loc="upper left", borderaxespad=0.)
-
-
-#x_test[40] = water
-#pred_class[11233123] = water
-
-f = '/Users/jameysmith/Documents/sentinel2_tanz/aoi_scenes/testing/2016-11-16/S2A_OPER_MSI_L1C_TL_SGS__20161116T132549_A007325_T36MUS_N02.04_B02.tif'
-img = gippy.GeoImage.open(filenames=[f], bandnames=['blue'], nodata=0)
-v = img.read()
+    outrast = None
