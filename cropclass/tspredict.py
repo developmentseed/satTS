@@ -49,7 +49,15 @@ def format_scene(file_path, mu, sd):
 
 
 def classified_scene(formatted_scene, model, refimg, outimg):
+    '''Predict land cover for full Sentinel-2 scene
+
+     -> Use a band (not an index) for reference image
+    '''
+
     img = gdal.Open(refimg, gdal.GA_ReadOnly)
+
+    # For masking no-data values
+    arr = np.array(img.GetRasterBand(1).ReadAsArray())
 
     # Fetch dimensions of reference raster
     ncol = img.RasterXSize
@@ -78,8 +86,12 @@ def classified_scene(formatted_scene, model, refimg, outimg):
     # Reshape to match 2D image array
     pred_mat = pred_class.reshape(nrow, ncol)
 
+    # Mask no-data values
+    pred_mat[arr == 0.] = 0
+
     # Fill output image with the predicted class values
     b = outrast.GetRasterBand(1)
     b.WriteArray(pred_mat)
 
     outrast = None
+
