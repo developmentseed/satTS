@@ -48,7 +48,7 @@ def format_scene(file_path, mu, sd):
     return full_norm
 
 
-def classified_scene(formatted_scene, model, refimg, outimg):
+def classify_scene(formatted_scene, model, refimg, outimg):
     '''Predict land cover for full Sentinel-2 scene
 
      -> Use a band (not an index) for reference image
