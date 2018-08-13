@@ -10,15 +10,19 @@ import matplotlib.pyplot as plt
 
 
 def apply_savgol(x, value, window, poly):
-    ''' Perform Savgol signal smoothing on time-series in dataframe group object (x)
+    """ Perform Savgol signal smoothing on time-series in dataframe group object (x)
 
-    :param x (pd.DataFrame.groupby): Grouped dataframe object
-    :param window (int): smoothing window - pass to signal.savgol_filter 'window_length' param
-    :param poly (int): polynomial order used to fit samples - pass to signal.savgol_filter 'polyorder' param
-    :param value (str): Name of value (variable) to smooth
+    Parameters
+    ----------
+        x: (pd.DataFrame.groupby) Grouped dataframe object
+        window (int): smoothing window - pass to signal.savgol_filter 'window_length' param
+        poly (int): polynomial order used to fit samples - pass to signal.savgol_filter 'polyorder' param
+        value (str): Name of value (variable) to smooth
 
-    :return: "Smoothed" time-series
-    '''
+    Returns
+    -------
+        x: "Smoothed" time-series
+    """
 
     x[value] = signal.savgol_filter(x[value], window_length=window, polyorder=poly)
 

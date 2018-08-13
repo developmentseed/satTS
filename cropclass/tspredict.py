@@ -1,7 +1,7 @@
 import os
 import gippy
 import numpy as np
-from osgeo import ogr, gdal
+from osgeo import gdal
 
 
 def format_scene(file_path, mu, sd):
@@ -87,7 +87,7 @@ def classify_scene(formatted_scene, model, refimg, outimg):
     pred_mat = pred_class.reshape(nrow, ncol)
 
     # Mask no-data values
-    pred_mat[arr == 0.] = 0
+    pred_mat[arr == 0.] = 9999
 
     # Fill output image with the predicted class values
     b = outrast.GetRasterBand(1)
