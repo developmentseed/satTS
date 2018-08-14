@@ -57,14 +57,19 @@ plt.title('Blue')
 
 # "X" matrix containing our features, and a "y" array containing our labels
 X = train_wide.iloc[:, 1:len(train_wide.columns)]
+X.to_csv('/Users/jameysmith/Documents/sentinel2_tanz/training_data/x_y/x_6-dates', index=False)
+
 y = train_wide['label']
+
 y.values[y.values == 'veg'] = 5
 y.values[y.values == 'water'] = 6
 y.values[y.values == 'urban'] = 7
+y.to_csv('/Users/jameysmith/Documents/sentinel2_tanz/training_data/x_y/y_6-dates', index=False)
+
 y = pd.to_numeric(y)
 
-X.to_csv('/Users/jameysmith/Documents/sentinel2_tanz/training_data/x_y/x_6-dates', index=False)
-y.to_csv('/Users/jameysmith/Documents/sentinel2_tanz/training_data/x_y/y_6-dates', index=False)
+
+
 
 # Initialize model with 500 trees
 rf = RandomForestClassifier(n_estimators=500, oob_score=True)
