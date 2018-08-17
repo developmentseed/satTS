@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a01049d-bdd6-4ebb-8846-74c14794cb8b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/cropclass/.ipynb_checkpoints/cluster_gridsearch-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/cluster_gridsearch-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cropclass/alt_models/gdptree.py" beforeDir="false" afterPath="$PROJECT_DIR$/alt_models/gdptree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cropclass/alt_models/random_forest.py" beforeDir="false" afterPath="$PROJECT_DIR$/alt_models/random_forest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cropclass/examples/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cropclass/examples/create_ndvi_ts.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/create_ndvi_ts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cropclass/examples/gridsearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/gridsearch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cropclass/examples/training_data_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/training_data_example.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cropclass/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jupyter_notebooks/Untitled.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter_notebooks/Untitled.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -68,12 +64,8 @@
         </entry>
       </file>
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="23" selection-start-column="23" selection-end-column="23" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/cropclass/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="tspredict.py" pinned="false" current-in-tab="false">
@@ -169,7 +161,6 @@
         <option value="$PROJECT_DIR$/cropclass/tsClustering.py" />
         <option value="$PROJECT_DIR$/cropclass/cluser_grid_search.py" />
         <option value="$PROJECT_DIR$/cropclass/main.py" />
-        <option value="$PROJECT_DIR$/cropclass/__init__.py" />
         <option value="$PROJECT_DIR$/cropclass/gridsearch.py" />
         <option value="$PROJECT_DIR$/cropclass/lstm_example.py" />
         <option value="$PROJECT_DIR$/cropclass/scratch.py" />
@@ -194,6 +185,8 @@
         <option value="$PROJECT_DIR$/cropclass/alt_models/gdptree.py" />
         <option value="$PROJECT_DIR$/cropclass/tsclust.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
+        <option value="$PROJECT_DIR$/cropclass/__init__.py" />
+        <option value="$PROJECT_DIR$/jupyter_notebooks/__init__.py" />
       </list>
     </option>
   </component>
@@ -223,6 +216,11 @@
             <path>
               <item name="temporal-crop-classification" type="b2602c69:ProjectViewProjectNode" />
               <item name="temporal-crop-classification" type="462c0819:PsiDirectoryNode" />
+              <item name="jupyter_notebooks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="temporal-crop-classification" type="b2602c69:ProjectViewProjectNode" />
+              <item name="temporal-crop-classification" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -247,6 +245,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/cropclass" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/cropclass/alt_models" />
       <recent name="$PROJECT_DIR$/cropclass/examples" />
@@ -379,7 +378,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49603805" visible="true" weight="0.22213247" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49603805" visible="true" weight="0.22213247" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32988167" />
       <window_info anchor="right" id="R Packages" order="3" />
       <window_info anchor="right" id="R Graphics" order="3" />
@@ -388,7 +387,7 @@
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32941177" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" sideWeight="0.503962" side_tool="true" weight="0.1603261" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.5617647" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.5617647" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -418,7 +417,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ndviTsSamples.py" />
     <entry file="file://$PROJECT_DIR$/cropclassification/ndviTSDataframes.py" />
     <entry file="file://$PROJECT_DIR$/cropclassification/ndviTsMask.py" />
     <entry file="file://$PROJECT_DIR$/cropclassification/ndviTsSamples.py" />
@@ -619,12 +617,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/__init__.py">
+    <entry file="file://$PROJECT_DIR$/jupyter_notebooks/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="23" selection-start-column="23" selection-end-column="23" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cropclass/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
