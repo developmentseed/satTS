@@ -6,7 +6,6 @@ import re
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 ### Step 1: rasterize land cover shapefile
 fp = '/Users/jameysmith/Documents/sentinel2_tanz'
 
