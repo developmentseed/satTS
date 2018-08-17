@@ -1,7 +1,7 @@
-from cropclass import tstrain
+import tstrain
 
 ## ADD INDEX BANDS
-filepath = '/Users/jameysmith/Documents/sentinel2_tanz/aoi_scenes/testing'
+filepath = '/home/geolambda/work/Sentinel-2A'
 
 asset_dict = {'B02': 'blue',
               'B03': 'green',
