@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a01049d-bdd6-4ebb-8846-74c14794cb8b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/cropclass/jupyter_notebooks/final_clusters.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/cropclass/jupyter_notebooks/final_clusters.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cropclass/tsclust.py" beforeDir="false" afterPath="$PROJECT_DIR$/cropclass/tsclust.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jupyter_notebooks/Untitled.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cropclass/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cropclass/jupyter_notebooks/.ipynb_checkpoints/Untitled-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter_notebooks/.ipynb_checkpoints/Untitled-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cropclass/jupyter_notebooks/.ipynb_checkpoints/final_clusters-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter_notebooks/.ipynb_checkpoints/final_clusters-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cropclass/jupyter_notebooks/Untitled.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cropclass/jupyter_notebooks/cluster_gridsearch.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter_notebooks/cluster_gridsearch.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cropclass/jupyter_notebooks/final_clusters.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter_notebooks/final_clusters.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cropclass/jupyter_notebooks/fit_LSTM.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter_notebooks/fit_LSTM.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cropclass/jupyter_notebooks/fit_LSTM_labeled.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter_notebooks/fit_LSTM_labeled.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cropclass/jupyter_notebooks/fit_lstm_test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter_notebooks/fit_lstm_test.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,25 +22,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tsclust.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tsclust.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cropclass/tsclust.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-452">
               <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ndvicalc.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/archive/ndvicalc.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="4" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -65,11 +61,20 @@
       <file leaf-file-name="tsmask.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cropclass/tsmask.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2295">
+            <state relative-caret-position="1506">
               <caret line="157" column="8" selection-start-line="157" selection-start-column="8" selection-end-line="157" selection-end-column="60" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="23" selection-start-column="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -191,6 +196,7 @@
         <option value="$PROJECT_DIR$/cropclass/gdptree.py" />
         <option value="$PROJECT_DIR$/cropclass/alt_models/gdptree.py" />
         <option value="$PROJECT_DIR$/cropclass/tsclust.py" />
+        <option value="$PROJECT_DIR$/__init__.py" />
       </list>
     </option>
   </component>
@@ -215,18 +221,7 @@
             <path>
               <item name="temporal-crop-classification" type="b2602c69:ProjectViewProjectNode" />
               <item name="temporal-crop-classification" type="462c0819:PsiDirectoryNode" />
-              <item name="archive" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="temporal-crop-classification" type="b2602c69:ProjectViewProjectNode" />
-              <item name="temporal-crop-classification" type="462c0819:PsiDirectoryNode" />
               <item name="cropclass" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="temporal-crop-classification" type="b2602c69:ProjectViewProjectNode" />
-              <item name="temporal-crop-classification" type="462c0819:PsiDirectoryNode" />
-              <item name="cropclass" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="temporal-crop-classification" type="b2602c69:ProjectViewProjectNode" />
@@ -255,10 +250,10 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/cropclass/alt_models" />
       <recent name="$PROJECT_DIR$/cropclass/examples" />
       <recent name="$PROJECT_DIR$/archive" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -522,16 +517,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cropclass/tsmask.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="157" column="8" selection-start-line="157" selection-start-column="8" selection-end-line="157" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cropclass/training_data_example.py" />
     <entry file="file://$PROJECT_DIR$/cropclass/create_ndvi_ts.py" />
     <entry file="file://$PROJECT_DIR$/cropclass/random_forest.py" />
@@ -570,9 +555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cropclass/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/cropclass/alt_models/__init__.py" />
     <entry file="file://$PROJECT_DIR$/cropclass/alt_models/gdptree.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -584,7 +566,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cropclass/jupyter_notebooks/cluster_gridsearch.ipynb">
+    <entry file="file://$PROJECT_DIR$/jupyter_notebooks/cluster_gridsearch.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
@@ -628,6 +610,23 @@
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cropclass/tsmask.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1506">
+          <caret line="157" column="8" selection-start-line="157" selection-start-column="8" selection-end-line="157" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
         </state>
       </provider>
     </entry>
