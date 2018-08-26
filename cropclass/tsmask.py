@@ -4,7 +4,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-GIT TEST
 
 def rasterize(shapefile, outimg, refimg, attribute):
     ''' Rasterize a shapefile containing land cover polygons. Shapefile should have an attribute

@@ -1,5 +1,4 @@
 from tslearn.utils import to_time_series_dataset
-from tslearn.clustering import TimeSeriesKMeans
 from tslearn.clustering import silhouette_score
 import tslearn.clustering as clust
 from scipy import signal
@@ -84,7 +83,7 @@ class TimeSeriesSample:
         self.sample = time_series_df[self.group.ngroup().isin(self.arranged_group[:n_samples])]
 
         if self.sample['date'].dtype != 'O':
-            self.sample['date'] = self.sample['date'].dt.ststrftime('%Y-%m-%d')
+            self.sample['date'] = self.sample['date'].dt.strftime('%Y-%m-%d')
 
         self.sample_dates = self.sample['date'].unique()
         self.tslist = self.sample.groupby(['lc', 'pixel', 'array_index'])[self.ts_var].apply(list)
@@ -104,6 +103,7 @@ class TimeSeriesSample:
 
 
 def cluster_time_series(ts_sample, cluster_alg, n_clusters, cluster_metric, score=False):
+
     # Dataframe to store cluster results
     clust_df = pd.DataFrame(ts_sample.tslist.tolist(), index=ts_sample.tslist.index).reset_index()
     clust_df.columns.values[3:] = ts_sample.sample_dates
