@@ -141,13 +141,22 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix
 
 ethiopia = pd.read_csv('/Volumes/Seagate Expansion Drive/ethiopia_luc/dataset/all-samples.csv')
-#ethiopia['feat_date'] = ethiopia['feature'] + ethiopia['date']
 
+# Wide-format for model fitting
 train_ds = ethiopia.pivot_table(index=['land_cover', 'ind'], columns=['feature', 'date'], values='value').reset_index()
 
+# Remove redundant bands
 train_ds = train_ds[train_ds.columns.drop(list(train_ds.filter(regex='red')))]
 train_ds = train_ds[train_ds.columns.drop(list(train_ds.filter(regex='nir')))]
 train_ds = train_ds.drop(['ind'], axis=1)
+
+# # Test with no BSI bands
+# train_ds = train_ds[train_ds.columns.drop(list(train_ds.filter(regex='bsi')))]
+#
+# # Test ndvi only
+# train_ds = train_ds[train_ds.columns.drop(list(train_ds.filter(regex='blue')))]
+# train_ds = train_ds[train_ds.columns.drop(list(train_ds.filter(regex='green')))]
+# train_ds = train_ds[train_ds.columns.drop(list(train_ds.filter(regex='swir')))]
 
 # "X" matrix containing our features, and a "y" array containing our labels
 X = train_ds.iloc[:, 1:len(train_ds.columns)]
