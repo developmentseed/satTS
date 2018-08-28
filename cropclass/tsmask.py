@@ -78,7 +78,7 @@ def check_rasterize(rasterized_file, plot=True):
         plt.imshow(roi)
 
 
-def mask_to_array(files, dates, mask, class_num):
+def mask_to_array(files, dates, mask, class_num, gain, missing_vals=None):
     ''' Generate a 3d array of values corresponding to a time-series of image masks for a land cover class
 
     :param files (list): List of files containing the image time-series (e.g. a stack of NDVI images)
@@ -90,7 +90,7 @@ def mask_to_array(files, dates, mask, class_num):
     '''
 
     # Grab dimensions to set empty array
-    ts = gippy.GeoImage.open(filenames=files, bandnames=dates, nodata=0, gain=.0001)
+    ts = gippy.GeoImage.open(filenames=files, bandnames=dates, nodata=0, gain=gain)
 
     nbands = ts.nbands()
     nrows = ts.ysize()
@@ -103,7 +103,7 @@ def mask_to_array(files, dates, mask, class_num):
 
     for band in range(0, nbands):
         # Open image time-series
-        ndvi_ts = gippy.GeoImage.open(filenames=files, bandnames=dates, nodata=0, gain=.0001)
+        ndvi_ts = gippy.GeoImage.open(filenames=files, bandnames=dates, nodata=0, gain=gain)
 
         # Open rasterized landcover
         land_cover = gippy.GeoImage.open(filenames=[mask], bandnames=(['land_cover']), nodata=0)
@@ -115,7 +115,8 @@ def mask_to_array(files, dates, mask, class_num):
         lc_mask = lc_mask[band].read()
 
         # Deal with no-data values
-        lc_mask[lc_mask == -32768] = np.nan
+        if missing_vals is not None:
+            lc_mask[lc_mask == missing_vals] = np.nan
 
         # Append water mask np.array
         arr[band] = lc_mask
