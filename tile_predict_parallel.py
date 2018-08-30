@@ -1,4 +1,4 @@
-import tspredict
+from cropclass import tspredict
 import pandas as pd
 import numpy as np
 import os
