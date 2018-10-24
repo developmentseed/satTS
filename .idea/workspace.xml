@@ -3,8 +3,349 @@
   <component name="ChangeListManager">
     <list default="true" id="2a01049d-bdd6-4ebb-8846-74c14794cb8b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cropclass/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter_notebooks/Untitled.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter_notebooks/Untitled.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Untitled-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/final_clusters-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Untitled.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alt_models/gdptree.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alt_models/random_forest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aoi.geojson" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/BandTimeSeries.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/data_reshape.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/lcRasterize.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/ndviTSDataframes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/ndviTsMask.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/ndviTsSamples.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/ndvi_forblog.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/ndvicalc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/resample.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/scratch.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/tsClustering.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cc-tutorial1_clustering.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cluster_gridsearch.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cropclass/ndvi_img.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cropclass/togeo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethiopia-luc/get-training-data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethiopia-rf.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/create_ndvi_ts.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/gridsearch.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/training_data_example.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_clusters.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fit_LSTM.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fit_LSTM_labeled.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fit_lstm_test.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rukwa.geojson" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tile_predict_parallel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/activate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/activate.csh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/activate.fish" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/easy_install" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/easy_install-3.6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/pip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/pip3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/pip3.6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/python" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/python3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/python3.6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/easy-install.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/EGG-INFO/PKG-INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/EGG-INFO/SOURCES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/EGG-INFO/dependency_links.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/EGG-INFO/entry_points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/EGG-INFO/not-zip-safe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/EGG-INFO/requires.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/EGG-INFO/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/__main__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/basecommand.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/baseparser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/build_env.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/cache.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/cmdoptions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/commands/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/commands/check.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/commands/completion.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/commands/configuration.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/commands/download.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/commands/freeze.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/commands/hash.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/commands/help.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/commands/install.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/commands/list.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/commands/search.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/commands/show.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/commands/uninstall.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/commands/wheel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/compat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/configuration.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/download.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/exceptions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/index.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/locations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/models/index.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/operations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/operations/check.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/operations/freeze.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/operations/prepare.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/pep425tags.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/req/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/req/req_file.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/req/req_install.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/req/req_set.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/req/req_uninstall.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/resolve.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/status_codes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/utils/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/utils/appdirs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/utils/deprecation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/utils/encoding.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/utils/filesystem.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/utils/glibc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/utils/hashes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/utils/logging.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/utils/misc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/utils/outdated.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/utils/packaging.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/utils/setuptools_build.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/utils/temp_dir.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/utils/typing.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/utils/ui.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/vcs/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/vcs/bazaar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/vcs/git.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/vcs/mercurial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/vcs/subversion.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/wheel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/appdirs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/cachecontrol/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/cachecontrol/_cmd.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/cachecontrol/adapter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/cachecontrol/cache.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/cachecontrol/caches/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/cachecontrol/caches/file_cache.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/cachecontrol/caches/redis_cache.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/cachecontrol/compat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/cachecontrol/controller.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/cachecontrol/filewrapper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/cachecontrol/heuristics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/cachecontrol/serialize.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/cachecontrol/wrapper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/certifi/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/certifi/__main__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/certifi/cacert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/certifi/core.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/big5freq.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/big5prober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/chardistribution.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/charsetgroupprober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/charsetprober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/cli/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/cli/chardetect.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/codingstatemachine.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/compat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/cp949prober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/enums.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/escprober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/escsm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/eucjpprober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/euckrfreq.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/euckrprober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/euctwfreq.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/euctwprober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/gb2312freq.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/gb2312prober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/hebrewprober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/jisfreq.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/jpcntx.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/langbulgarianmodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/langcyrillicmodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/langgreekmodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/langhebrewmodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/langhungarianmodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/langthaimodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/langturkishmodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/latin1prober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/mbcharsetprober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/mbcsgroupprober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/mbcssm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/sbcharsetprober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/sbcsgroupprober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/sjisprober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/universaldetector.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/utf8prober.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/chardet/version.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/colorama/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/colorama/ansi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/colorama/ansitowin32.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/colorama/initialise.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/colorama/win32.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/colorama/winterm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/_backport/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/_backport/misc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/_backport/shutil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/_backport/sysconfig.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/_backport/sysconfig.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/_backport/tarfile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/compat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/database.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/index.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/locators.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/manifest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/markers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/metadata.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/resources.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/scripts.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/t32.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/t64.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/version.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/w32.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/w64.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/wheel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distro.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/_ihatexml.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/_inputstream.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/_tokenizer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/_trie/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/_trie/_base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/_trie/datrie.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/_trie/py.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/constants.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/filters/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/filters/alphabeticalattributes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/filters/base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/filters/inject_meta_charset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/filters/lint.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/filters/optionaltags.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/filters/sanitizer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/filters/whitespace.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/html5parser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/serializer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treeadapters/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treeadapters/genshi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treeadapters/sax.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treebuilders/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treebuilders/base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treebuilders/dom.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treebuilders/etree.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treebuilders/etree_lxml.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treewalkers/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treewalkers/base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treewalkers/dom.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treewalkers/etree.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treewalkers/etree_lxml.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treewalkers/genshi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/idna/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/idna/codec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/idna/compat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/idna/core.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/idna/idnadata.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/idna/intranges.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/idna/package_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/idna/uts46data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/ipaddress.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/lockfile/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/lockfile/linklockfile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/lockfile/mkdirlockfile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/lockfile/pidlockfile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/lockfile/sqlitelockfile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/lockfile/symlinklockfile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/msgpack/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/msgpack/_version.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/msgpack/exceptions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/msgpack/fallback.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/packaging/__about__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/packaging/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/packaging/_compat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/packaging/_structures.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/packaging/markers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/packaging/requirements.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/packaging/specifiers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/packaging/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/packaging/version.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/pkg_resources/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/pkg_resources/py31compat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/progress/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/progress/bar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/progress/counter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/progress/helpers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/progress/spinner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/pyparsing.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/pytoml/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/pytoml/core.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/pytoml/parser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/pytoml/writer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/__version__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/_internal_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/adapters.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/auth.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/certs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/compat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/cookies.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/exceptions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/help.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/hooks.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/packages.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/sessions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/status_codes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/structures.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/requests/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/retrying.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/six.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/_collections.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/connection.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/connectionpool.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/contrib/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/contrib/_securetransport/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/contrib/_securetransport/bindings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/contrib/_securetransport/low_level.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/contrib/appengine.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/contrib/ntlmpool.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/contrib/pyopenssl.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/contrib/securetransport.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/contrib/socks.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/exceptions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/fields.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/filepost.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/packages/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/packages/backports/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/packages/backports/makefile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/packages/ordered_dict.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/packages/six.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/packages/ssl_match_hostname/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/packages/ssl_match_hostname/_implementation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/poolmanager.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/request.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/util/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/util/connection.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/util/request.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/util/response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/util/retry.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/util/selectors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/util/ssl_.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/util/timeout.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/util/url.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/util/wait.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/webencodings/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/webencodings/labels.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/webencodings/mklabels.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/webencodings/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/webencodings/x_user_defined.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/setuptools-39.1.0-py3.6.egg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/setuptools.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pyvenv.cfg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,34 +359,10 @@
       <file leaf-file-name="tsclust.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cropclass/tsclust.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-452">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="315">
+              <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="84" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="togeo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cropclass/togeo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1395">
-              <caret line="97" selection-start-line="97" selection-end-line="97" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tstrain.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cropclass/tstrain.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3240">
-              <caret line="226" column="18" selection-start-line="226" selection-start-column="18" selection-end-line="226" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,8 +371,8 @@
       <file leaf-file-name="tsmask.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cropclass/tsmask.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1506">
-              <caret line="157" column="8" selection-start-line="157" selection-start-column="8" selection-end-line="157" selection-end-column="60" />
+            <state relative-caret-position="405">
+              <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -63,55 +380,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cropclass/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="tstrain.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cropclass/tstrain.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1380">
+              <caret line="102" column="29" selection-start-line="102" selection-start-column="29" selection-end-line="102" selection-end-column="29" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="tspredict.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tspredict.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cropclass/tspredict.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="83" column="17" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="random_forest.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alt_models/random_forest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create_ndvi_ts.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/create_ndvi_ts.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-151">
-              <caret selection-end-line="6" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gdptree.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alt_models/gdptree.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="103" column="28" selection-start-line="103" selection-start-column="28" selection-end-line="103" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -129,6 +411,7 @@
     <findStrings>
       <find>arra</find>
       <find>where</find>
+      <find>listd</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -137,10 +420,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lcClasses.py" />
-        <option value="$PROJECT_DIR$/jpegToGeotiff.py" />
-        <option value="$PROJECT_DIR$/ndvi_forblog.py" />
-        <option value="$PROJECT_DIR$/ndviCalc.py" />
         <option value="$PROJECT_DIR$/lcRasterize.py" />
         <option value="$PROJECT_DIR$/ndviTSDataframes.py" />
         <option value="$PROJECT_DIR$/ndviTsMask.py" />
@@ -171,9 +450,7 @@
         <option value="$PROJECT_DIR$/cropclass/ndvicalc.py" />
         <option value="$PROJECT_DIR$/cropclass/ndvi_img.py" />
         <option value="$PROJECT_DIR$/cropclass/resample.py" />
-        <option value="$PROJECT_DIR$/cropclass/tsmask.py" />
         <option value="$PROJECT_DIR$/cropclass/create_ndvi_ts.py" />
-        <option value="$PROJECT_DIR$/archive/ndvi_forblog.py" />
         <option value="$PROJECT_DIR$/cropclass/togeo.py" />
         <option value="$PROJECT_DIR$/archive/data_reshape.py" />
         <option value="$PROJECT_DIR$/cropclass/tstrain.py" />
@@ -183,59 +460,48 @@
         <option value="$PROJECT_DIR$/cropclass/alt_models/random_forest.py" />
         <option value="$PROJECT_DIR$/cropclass/gdptree.py" />
         <option value="$PROJECT_DIR$/cropclass/alt_models/gdptree.py" />
-        <option value="$PROJECT_DIR$/cropclass/tsclust.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/cropclass/__init__.py" />
         <option value="$PROJECT_DIR$/jupyter_notebooks/__init__.py" />
+        <option value="$PROJECT_DIR$/examples/create_ndvi_ts.py" />
+        <option value="$PROJECT_DIR$/cropclass/tsclust.py" />
+        <option value="$PROJECT_DIR$/archive/ndvi_forblog.py" />
+        <option value="$PROJECT_DIR$/alt_models/gdptree.py" />
+        <option value="$PROJECT_DIR$/ethiopia-luc/get-training-data.py" />
+        <option value="$PROJECT_DIR$/alt_models/rukwa-predicted.py" />
+        <option value="$PROJECT_DIR$/cropclass/rastcheck.py" />
+        <option value="$PROJECT_DIR$/cropclass/tsmask.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="48" />
-    <option name="y" value="23" />
-    <option name="width" value="1568" />
-    <option name="height" value="984" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="90" />
+    <option name="y" value="36" />
+    <option name="width" value="2044" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="temporal-crop-classification" type="b2602c69:ProjectViewProjectNode" />
-              <item name="temporal-crop-classification" type="462c0819:PsiDirectoryNode" />
+              <item name="satTS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="satTS" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="temporal-crop-classification" type="b2602c69:ProjectViewProjectNode" />
-              <item name="temporal-crop-classification" type="462c0819:PsiDirectoryNode" />
+              <item name="satTS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="satTS" type="462c0819:PsiDirectoryNode" />
               <item name="cropclass" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="temporal-crop-classification" type="b2602c69:ProjectViewProjectNode" />
-              <item name="temporal-crop-classification" type="462c0819:PsiDirectoryNode" />
-              <item name="jupyter_notebooks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="temporal-crop-classification" type="b2602c69:ProjectViewProjectNode" />
-              <item name="temporal-crop-classification" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="temporal-crop-classification" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="temporal-crop-classification" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -376,18 +642,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="777" extended-state="6" />
+    <frame x="90" y="36" width="2044" height="1027" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49603805" visible="true" weight="0.22213247" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49603805" visible="true" weight="0.13336663" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32988167" />
       <window_info anchor="right" id="R Packages" order="3" />
       <window_info anchor="right" id="R Graphics" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50080776" side_tool="true" weight="0.27941176" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32794118" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32941177" />
+      <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.49919224" visible="true" weight="0.26881722" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" sideWeight="0.503962" side_tool="true" weight="0.1603261" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.5617647" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49919224" weight="0.56136364" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -398,6 +664,27 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32794118" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49603805" visible="true" weight="0.1629393" />
+      <window_info id="Structure" order="1" sideWeight="0.503962" side_tool="true" weight="0.1603261" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32988167" />
+      <window_info anchor="right" id="R Graphics" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="right" id="R Packages" order="4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.5617647" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="8" visible="true" weight="0.23333333" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -417,16 +704,9 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cropclassification/ndviTSDataframes.py" />
-    <entry file="file://$PROJECT_DIR$/cropclassification/ndviTsMask.py" />
-    <entry file="file://$PROJECT_DIR$/cropclassification/ndviTsSamples.py" />
-    <entry file="file://$PROJECT_DIR$/cropclassification/ndviCalc.py" />
-    <entry file="file://$PROJECT_DIR$/cropclassification/lcRasterize.py" />
     <entry file="file://$PROJECT_DIR$/cropclass/BandTimeSeries" />
     <entry file="file://$PROJECT_DIR$/other/ndvi_forblog.py" />
-    <entry file="file://$PROJECT_DIR$/test/test_main.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_main.py" />
     <entry file="file://$PROJECT_DIR$/cropclass/lcRasterize.py" />
     <entry file="file://$PROJECT_DIR$/cropclass/cropclust.py" />
     <entry file="file://$PROJECT_DIR$/cropclass/ndviTsSamples.py" />
@@ -436,16 +716,6 @@
     <entry file="file://$PROJECT_DIR$/cropclass/ndviTsMask.py" />
     <entry file="file://$PROJECT_DIR$/cropclass/cluser_grid_search.py" />
     <entry file="file://$PROJECT_DIR$/cropclass/main.py" />
-    <entry file="file://$PROJECT_DIR$/examples/gridsearch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/archive/ndviTsSamples.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/archive/ndviTSDataframes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -480,34 +750,10 @@
     <entry file="file://$PROJECT_DIR$/cropclass/get_training_data.py" />
     <entry file="file://$PROJECT_DIR$/cropclass/format_data.py" />
     <entry file="file://$PROJECT_DIR$/cropclass/training_gen.py" />
-    <entry file="file://$PROJECT_DIR$/archive/resample.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="17" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/archive/ndvi_forblog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="115" selection-start-line="115" selection-end-line="115" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/archive/data_reshape.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="656">
           <caret line="63" selection-start-line="63" selection-end-line="63" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cropclass/togeo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="97" selection-start-line="97" selection-end-line="97" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -522,16 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cropclass/tstrain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3240">
-          <caret line="226" column="18" selection-start-line="226" selection-start-column="18" selection-end-line="226" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.conda/envs/temporal-crop-classification/lib/python3.6/site-packages/xgboost/sklearn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -539,93 +775,141 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cropclass/tspredict.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="83" column="17" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cropclass/alt_models/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/alt_models/gdptree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="103" column="28" selection-start-line="103" selection-start-column="28" selection-end-line="103" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jupyter_notebooks/cluster_gridsearch.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alt_models/random_forest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/create_ndvi_ts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-151">
-          <caret selection-end-line="6" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/jupyter_notebooks/cluster_gridsearch.ipynb" />
     <entry file="file://$PROJECT_DIR$/archive/ndvicalc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="4" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jupyter_notebooks/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/cropclass/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archive/ndviTsSamples.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archive/resample.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="16" selection-start-line="16" selection-end-line="17" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/gridsearch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="2" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cropclass/tsclust.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-452">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="315">
+          <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="84" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/examples/training_data_example.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archive/ndvi_forblog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="83" selection-start-line="83" selection-end-line="99" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cropclass/tstrain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1380">
+          <caret line="102" column="29" selection-start-line="102" selection-start-column="29" selection-end-line="102" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cropclass/tsmask.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1506">
-          <caret line="157" column="8" selection-start-line="157" selection-start-column="8" selection-end-line="157" selection-end-column="60" />
+        <state relative-caret-position="405">
+          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jupyter_notebooks/__init__.py">
+    <entry file="file://$PROJECT_DIR$/cropclass/rastcheck.py" />
+    <entry file="file://$PROJECT_DIR$/alt_models/rukwa-predicted.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cropclass/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/alt_models/gdptree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="99" column="28" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alt_models/random_forest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="100" selection-start-line="100" selection-end-line="101" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ethiopia-luc/get-training-data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" selection-start-line="37" selection-end-line="45" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tile_predict_parallel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-155">
+          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/create_ndvi_ts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="892">
+          <caret line="62" selection-start-line="62" selection-end-line="64" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cropclass/togeo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="93" column="38" selection-start-line="93" selection-start-column="38" selection-end-line="93" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cropclass/tspredict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
