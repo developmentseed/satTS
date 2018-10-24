@@ -1,4 +1,4 @@
-# Temporal-Crop-Classification
+# Pixel-level clustering and classification of multi-spectral, multi-temporal earth observation data
 
 This library contains objects and functions to generate datasets from a time-series of satellite images. The impetus for this project was to develop a toolkit for the classification of crop types using a time-series of images, thereby incorporating changes in reflectance values through time into the modeling framework. However, most if not all of the functionality is not specific to crop classification and can be used to generate reflectance time-series datasets and models for arbitraty objects or areas. 
 
@@ -33,8 +33,6 @@ The library is divided in to several components:
 
 ## Examples
 
-The `create_ndvi_ts.py` script provides an example of working with the functions and classes in the `tsmask` and `tsclust` modules.
-
-The `training_data_example.py` script uses functions from the `get_training_data` module to fit a LSTM neural network in Keras.  
+Coming soon: Two jupyter notebook tutorials showcasing the functionality in this library
     
     
